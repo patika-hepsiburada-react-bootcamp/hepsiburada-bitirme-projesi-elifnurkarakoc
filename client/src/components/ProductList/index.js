@@ -18,7 +18,7 @@ const ProductList = () => {
   if (error) {
     <div>Error: {error}</div>;
   }
-
+ 
   return (
     <div>
       {items.map((product) => (
