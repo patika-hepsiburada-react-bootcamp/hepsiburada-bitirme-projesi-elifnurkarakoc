@@ -21,5 +21,6 @@ module.exports = {
     "rules": {
         'react/react-in-jsx-scope': 'off',
         "semi": [2, 'always'],
+        'react/prop-types': 'off',
     }
 };
