@@ -3,10 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.js": [
+      "yarn lint"
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd client && yarn lint",
     "prepare": "husky install"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/patika-hepsiburada-react-bootcamp/hepsiburada-bitirme-projesi-elifnurkarakoc.git"
