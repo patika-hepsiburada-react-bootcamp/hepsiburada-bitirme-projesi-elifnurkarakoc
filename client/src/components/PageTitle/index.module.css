@@ -1,0 +1,37 @@
+
+.page_title {
+    width: 303px;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    align-items: flex-start;
+  }
+  
+  .text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 100%;
+    color: #484848;
+  }
+  
+  .search_text {
+    padding: 2px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 100%;
+    /* identical to box height, or 15px */
+  
+    display: flex;
+    align-items: center;
+  
+    color: #b0b0b0;
+  }
+  .search_text span {
+    color: #484848;
+  }
+  

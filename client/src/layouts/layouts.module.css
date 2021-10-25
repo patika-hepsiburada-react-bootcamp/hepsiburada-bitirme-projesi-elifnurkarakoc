@@ -1,11 +1,15 @@
 .container {
+  font-family: Roboto;
   background: #ffffff;
 }
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 25px 80px;
+  justify-content: space-between;
+  padding: 31px 80px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
 }
 
+.content {
+  /* padding: 31px 80px; */
+}
