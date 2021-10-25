@@ -1,4 +1,5 @@
 import { Product } from "components";
+import styles from "./index.module.css";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -18,9 +19,9 @@ const ProductList = () => {
   if (error) {
     <div>Error: {error}</div>;
   }
- 
+
   return (
-    <div>
+    <div className={styles.productlist}>
       {items.map((product) => (
         <Product key={product.id} {...product} />
       ))}
