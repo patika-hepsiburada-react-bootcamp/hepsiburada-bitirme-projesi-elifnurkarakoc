@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
-const Product = ({ name, image, brand, color, price, discountPercentage }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { addProductToCart } from "redux/slices/CartSlice";
+const Product = (product) => {
   const [hover, setHover] = useState(false);
+  const { items } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  
+
   const discountPrice = (value) =>
-    (value - (value * discountPercentage) / 100).toFixed(2);
+    (value - (value * product.discountPercentage) / 100).toFixed(2);
+
+  const handleClick = () => {
+    dispatch(addProductToCart(product));
+  };
 
   return (
     <div
@@ -13,9 +24,9 @@ const Product = ({ name, image, brand, color, price, discountPercentage }) => {
     >
       <div className={styles.product_container}>
         <div className={styles.product_image}>
-          <img src={image} alt="" />
+          <img src={product.image} alt="" />
         </div>
-        <div className={styles.title}>{name}</div>
+        <div className={styles.title}>{product.name}</div>
         {!hover && (
           <>
             {" "}
@@ -23,33 +34,41 @@ const Product = ({ name, image, brand, color, price, discountPercentage }) => {
               <div className={styles.info}>
                 <p>
                   <b>Marka: </b>
-                  {brand}
+                  {product.brand}
                 </p>
               </div>
               <div className={styles.info}>
                 <p>
                   <b>Renk: </b>
-                  {color}
+                  {product.color}
                 </p>
               </div>
             </div>
-            <div className={styles.price}>{discountPrice(price)} TL</div>
-            {discountPercentage !== 0 && (
+            <div className={styles.price}>
+              {discountPrice(product.price)} TL
+            </div>
+            {product.discountPercentage !== 0 && (
               <div className={styles.no_discount_price}>
-                <span className={styles.line}> {price} TL</span>{" "}
-                <span className={styles.red}>{discountPercentage}%</span>
+                <span className={styles.line}> {product.price} TL</span>{" "}
+                <span className={styles.red}>
+                  {product.discountPercentage}%
+                </span>
               </div>
             )}
           </>
         )}
-        {hover && (
-          //TODO: add  basket control
-          // <>
-          //   <button className={styles.add_cart_button}>Sepete Ekle</button>
-          // </>
+        {hover && items.some((item) => item.id === product.id) && (
           <>
             <button className={styles.passive_button}>
               Bu ürünü sepete ekleyemezsiniz.
+            </button>
+          </>
+        )}
+
+        {hover && !items.some((item) => item.id === product.id) && (
+          <>
+            <button className={styles.add_cart_button} onClick={handleClick}>
+              Sepete Ekle
             </button>
           </>
         )}

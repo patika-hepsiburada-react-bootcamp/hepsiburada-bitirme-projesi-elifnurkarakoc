@@ -20,7 +20,7 @@ export const ProductSlice = createSlice({
     },
     [getProductAsync.fulfilled]: (state, action) => {
       state.loading = false;
-      state.items = action.payload;
+      state.items = action.payload;     
     },
     [getProductAsync.rejected]: (state, action) => {
       state.loading = false;

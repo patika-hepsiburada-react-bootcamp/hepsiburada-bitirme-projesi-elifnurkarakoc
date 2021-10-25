@@ -1,0 +1,53 @@
+.item {
+  /* height: 72px; */
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding-left: 21px;
+  padding-right: 105px;
+  background: white;
+}
+
+.image {
+  width: 40px;
+  height: 59.23px;
+  border: 1px solid #e5e5e5;
+}
+
+title {
+  width: 170px;
+  height: 32px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #484848;
+}
+
+.delete_wrapper {
+  align-self: flex-start;
+  text-align: center;
+  padding-top: 22px;
+}
+.delete {
+  width: 47px;
+  height: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 18px;
+  color: #f90000;
+  /* padding-top: 22px; */
+  background: #ffffff;
+  border: 1px solid #f90000;
+  border-radius: 4px;
+}
+.delete span {
+  align-items: center;
+  text-align: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 13px;
+}

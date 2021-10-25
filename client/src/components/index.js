@@ -7,3 +7,4 @@ export { default as SubHeader } from "components/SubHeader";
 export { default as PageTitle } from "components/PageTitle";
 export { default as SelectBox } from "components/SelectBox";
 export { default as Sidebar } from "components/Sidebar";
+export { default as BasketContent } from "components/BasketContent";
