@@ -1,0 +1,41 @@
+.basket {
+  width: 124px;
+  height: 55px;
+}
+
+.basket_button {
+  width: 120px;
+  height: 48px;
+  border: 1px solid #b0b0b0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.basket_text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 143%;
+  color: #b0b0b0;
+}
+
+.basket_badge {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background: #ff6000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 50%;
+  left: 26%;
+  top: -20px;
+}
