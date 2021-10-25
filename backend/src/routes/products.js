@@ -1,40 +1,7 @@
 const express = require('express');
 const { nanoid } = require('nanoid');
-
+const products = require("./constant");
 const router = express.Router();
-
-const products = [
-  {
-    id: '1',
-    name: 'Product1',
-    image:'imageurl',
-    brand:'brand',
-    color:'black',
-    price:1000,
-    createdDate:new Date(),
-    discountPercentage:30,
-  },
-  {
-    id: '2',
-    name: 'Product2',
-    image:'imageurl',
-    brand:'brand',
-    color:'black',
-    price:1000,
-    createdDate:new Date(),
-    discountPercentage:30,
-  },
-  {
-    id: '3',
-    name: 'Product3',
-    image:'imageurl',
-    brand:'brand',
-    color:'black',
-    price:1000,
-    createdDate:new Date(),
-    discountPercentage:30,
-  },
-];
 
 router.get('/', (req, res) => {
   res.json(products);
