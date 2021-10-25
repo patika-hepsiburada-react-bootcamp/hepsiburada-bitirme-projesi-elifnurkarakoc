@@ -13,3 +13,17 @@
 .content {
   /* padding: 31px 80px; */
 }
+
+.content .container{
+  display: flex;
+  padding: 17px 81px 0 80px; 
+}
+
+.content .container .sidebar{
+  display: flex;
+  flex-direction: column;
+}
+
+.content .container .products{
+  
+}
