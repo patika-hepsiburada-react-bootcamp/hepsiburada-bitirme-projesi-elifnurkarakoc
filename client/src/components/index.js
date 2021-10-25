@@ -8,3 +8,4 @@ export { default as PageTitle } from "components/PageTitle";
 export { default as SelectBox } from "components/SelectBox";
 export { default as Sidebar } from "components/Sidebar";
 export { default as BasketContent } from "components/BasketContent";
+export { default as Pagination } from "components/Pagination";
