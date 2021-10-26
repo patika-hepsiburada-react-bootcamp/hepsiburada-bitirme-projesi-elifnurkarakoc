@@ -15,15 +15,17 @@ export const ProductSlice = createSlice({
     brandFilters: {},
     selectedFilter: [],
     sort: "",
+    searchValue:"",
     loading: false,
     error: null,
   },
   reducers: {
     searchProducts: (state, action) => {
-      const searchValue = action.payload.toLowerCase();
-      state.visibleItems = searchValue
-        ? state.items.filter((p) => p.name.toLowerCase().includes(searchValue))
+      state.searchValue = action.payload.toLowerCase();
+      state.visibleItems = state.searchValue
+        ? state.items.filter((p) => p.name.toLowerCase().includes(state.searchValue))
         : state.items;
+      
     },
     updateProducts: (state, action) => {
       const filteredItems = action.payload;
