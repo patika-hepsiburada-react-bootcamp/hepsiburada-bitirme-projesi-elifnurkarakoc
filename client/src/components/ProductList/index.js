@@ -8,7 +8,9 @@ import { getProductAsync } from "redux/slices/ProductSlice";
 const ProductList = () => {
   const [productPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
-  const { items, loading, error } = useSelector((state) => state.products);
+  const { visibleItems, loading, error } = useSelector(
+    (state) => state.products
+  );
   const dispatch = useDispatch();
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -26,7 +28,7 @@ const ProductList = () => {
   // Get current products
   const indexOfLastProducts = currentPage * productPerPage;
   const indexOfFirstProducts = indexOfLastProducts - productPerPage;
-  const currentProducts = items.slice(
+  const currentProducts = visibleItems.slice(
     indexOfFirstProducts,
     indexOfLastProducts
   );
@@ -37,7 +39,7 @@ const ProductList = () => {
       ))}
       <Pagination
         productPerPage={productPerPage}
-        totalCount={items.length}
+        totalCount={visibleItems.length}
         paginate={paginate}
       />
     </div>

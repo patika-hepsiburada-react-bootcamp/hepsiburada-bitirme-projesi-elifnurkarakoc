@@ -9,18 +9,26 @@ export const ProductSlice = createSlice({
   name: "product",
   initialState: {
     items: [],
+    visibleItems: [],
     loading: false,
     error: null,
-    new_user_loading: false,
   },
-  reducers: {},
+  reducers: {
+    searchProducts: (state, action) => {
+      const searchValue = action.payload.toLowerCase();
+      state.visibleItems = searchValue
+        ? state.items.filter((p) => p.name.toLowerCase().includes(searchValue))
+        : state.items;
+    },
+  },
   extraReducers: {
     [getProductAsync.pending]: (state) => {
       state.loading = true;
     },
     [getProductAsync.fulfilled]: (state, action) => {
       state.loading = false;
-      state.items = action.payload;     
+      state.items = action.payload;
+      state.visibleItems = state.items;
     },
     [getProductAsync.rejected]: (state, action) => {
       state.loading = false;
@@ -28,5 +36,5 @@ export const ProductSlice = createSlice({
     },
   },
 });
-
+export const { searchProducts } = ProductSlice.actions;
 export default ProductSlice.reducer;

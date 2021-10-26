@@ -1,5 +1,8 @@
 .container {
   font-family: Roboto;
+  /* width: 1440px; */
+  height: 1987px;
+
   background: #ffffff;
 }
 .header {
@@ -8,22 +11,24 @@
   justify-content: space-between;
   padding: 31px 80px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35);
+  height: 96px;
+  left: 0px;
+  top: 0px;
 }
 
 .content {
   /* padding: 31px 80px; */
 }
 
-.content .container{
+.content .container {
   display: flex;
-  padding: 17px 81px 0 80px; 
+  padding: 17px 81px 0 80px;
 }
 
-.content .container .sidebar{
+.content .container .sidebar {
   display: flex;
   flex-direction: column;
 }
 
-.content .container .products{
-  
+.content .container .products {
 }
