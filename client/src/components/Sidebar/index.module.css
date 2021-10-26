@@ -24,6 +24,7 @@
   /* or 171% */
 
   color: #646464;
+  cursor: pointer;
 }
 .text:hover {
   width: 224px;

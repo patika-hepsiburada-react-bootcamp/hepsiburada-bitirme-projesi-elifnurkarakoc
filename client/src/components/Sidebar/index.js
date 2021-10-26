@@ -7,9 +7,10 @@ import {
   updateFilter,
   updateSelectedFilterKey,
 } from "redux/slices/ProductSlice";
+import { updateSort } from "redux/slices/ProductSlice";
 
 const Sidebar = ({ title, selectedFilter, propertyName, filterValues }) => {
-  const {  items } = useSelector((state) => state.products);
+  const { items } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   var filteredItems = {};
@@ -34,14 +35,29 @@ const Sidebar = ({ title, selectedFilter, propertyName, filterValues }) => {
     dispatch(updateProducts(filteredItems));
     dispatch(updateSelectedFilterKey(keys));
   };
+  const handleSortClick = (key) => {
+    // console.log(key);
+    dispatch(updateSort(key));
+  };
   return (
     <div className={styles.sidebar}>
       <p className={styles.title}>{title}</p>
-      {Object.entries(filterValues).map(([key, value]) => (
-        <p key={key} className={styles.text} onClick={() => handleClick(key)}>
-          {key} ({value})
-        </p>
-      ))}
+      {propertyName !== "sort" &&
+        Object.entries(filterValues).map(([key, value]) => (
+          <p key={key} className={styles.text} onClick={() => handleClick(key)}>
+            {key} ({value})
+          </p>
+        ))}
+      {propertyName === "sort" &&
+        Object.entries(filterValues).map(([key, value]) => (
+          <p
+            key={key}
+            className={styles.text}
+            onClick={() => handleSortClick(key)}
+          >
+            {value}
+          </p>
+        ))}
     </div>
   );
 };
