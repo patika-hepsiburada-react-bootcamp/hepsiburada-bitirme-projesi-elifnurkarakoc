@@ -20,7 +20,6 @@ const ProductList = () => {
   useEffect(() => {
     var sorted = updateProductsSort(visibleItems, sort);
     dispatch(updateProducts(sorted));
-
   }, [sort]);
 
   if (loading) {
@@ -41,11 +40,13 @@ const ProductList = () => {
         .map((product) => (
           <Product key={product.id} {...product} />
         ))}
-      <Pagination
-        productPerPage={productPerPage}
-        totalCount={visibleItems.length}
-        paginate={paginate}
-      />
+      <div className={styles.pagination}>
+        <Pagination
+          productPerPage={productPerPage}
+          totalCount={visibleItems.length}
+          paginate={paginate}
+        />
+      </div>
     </div>
   );
 };

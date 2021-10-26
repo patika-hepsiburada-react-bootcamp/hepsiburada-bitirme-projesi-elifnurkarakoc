@@ -1,20 +1,28 @@
 .basket {
-  width: 124px;
-  height: 55px;
+  /* width: 124px;
+  height: 55px; */
   cursor: pointer;
+  position: relative;
 }
 
 .basket_button {
+  position: relative;
   width: 120px;
   height: 48px;
   border: 1px solid #b0b0b0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.basket:hover> .basket_button{
+  border-bottom: 1px solid transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: white;
+  z-index: 2;
+}
 .basket_text {
   font-style: normal;
   font-weight: normal;

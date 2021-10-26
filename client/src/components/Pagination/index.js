@@ -27,8 +27,8 @@ const Pagination = ({ productPerPage, totalCount, paginate }) => {
       <ul>
         <button className={styles.item} onClick={handleBackClick}>&lt;</button>
         {pageNumbers.map((number) => (
-          <li key={number} className={styles.item}>
-            <button onClick={() => paginate(number)} href="!#">
+          <li key={number}>
+            <button onClick={() => paginate(number)} href="!#"  className={styles.item}>
               {number}
             </button>
           </li>

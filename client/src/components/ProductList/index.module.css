@@ -3,6 +3,12 @@
     grid-template-columns: 254px 254px 254px 254px;
     grid-template-rows: 472px 472px 472px;
     gap: 14px 14px;
-
     grid-auto-flow: row;
+    margin-left:16px;
+}
+.pagination{
+    width: 33px;
+    height: 33px;
+    top: 1656px; 
+    margin: 32px 304px 298px 0px;
 }
