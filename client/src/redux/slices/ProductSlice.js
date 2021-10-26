@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchProducts } from "api/api";
+import { getCountProperty } from "utils";
 export const getProductAsync = createAsyncThunk(
   "getProductAsync",
   fetchProducts
@@ -10,6 +11,9 @@ export const ProductSlice = createSlice({
   initialState: {
     items: [],
     visibleItems: [],
+    colorFilters: {},
+    brandFilters: {},
+    selectedFilter: [],
     loading: false,
     error: null,
   },
@@ -20,6 +24,18 @@ export const ProductSlice = createSlice({
         ? state.items.filter((p) => p.name.toLowerCase().includes(searchValue))
         : state.items;
     },
+    updateProducts: (state, action) => {
+      const filteredItems = action.payload;
+      state.visibleItems = filteredItems;
+    },
+    updateFilter: (state, action) => {
+      const { filteredItems } = action.payload;
+      state.colorFilters = getCountProperty(filteredItems, "color");
+      state.brandFilters = getCountProperty(filteredItems, "brand");
+    },
+    updateSelectedFilterKey: (state, action) => {
+     state.selectedFilter = action.payload;
+    },
   },
   extraReducers: {
     [getProductAsync.pending]: (state) => {
@@ -29,6 +45,8 @@ export const ProductSlice = createSlice({
       state.loading = false;
       state.items = action.payload;
       state.visibleItems = state.items;
+      state.colorFilters = getCountProperty(state.visibleItems, "color");
+      state.brandFilters = getCountProperty(state.visibleItems, "brand");
     },
     [getProductAsync.rejected]: (state, action) => {
       state.loading = false;
@@ -36,5 +54,10 @@ export const ProductSlice = createSlice({
     },
   },
 });
-export const { searchProducts } = ProductSlice.actions;
+export const {
+  searchProducts,
+  updateProducts,
+  updateFilter,
+  updateSelectedFilterKey,
+} = ProductSlice.actions;
 export default ProductSlice.reducer;

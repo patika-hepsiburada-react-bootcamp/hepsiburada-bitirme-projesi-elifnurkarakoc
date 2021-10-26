@@ -13,11 +13,10 @@ const ProductList = () => {
   );
   const dispatch = useDispatch();
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  
   useEffect(() => {
     dispatch(getProductAsync());
   }, [dispatch]);
-
   if (loading) {
     return <div>Loading...</div>;
   }
