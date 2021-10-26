@@ -13,8 +13,8 @@ const SelectBox = () => {
   };
   return (
     <div className={styles.selectbox}>
-      <select onClick={handleClick}>
-        <option className={styles.none} value="">
+      <select onClick={handleClick}  defaultValue={'DEFAULT'}>
+        <option className={styles.none} value="DEFAULT" disabled>
           Sıralama
         </option>
 

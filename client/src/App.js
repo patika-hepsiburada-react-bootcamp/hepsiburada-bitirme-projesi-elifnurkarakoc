@@ -1,15 +1,16 @@
 import "./App.css";
 import React from "react";
 import { Container, Header, Content } from "layouts";
-
-// import { ProductList } from "components";
+import { useSelector } from "react-redux";
+import { Modal } from "components";
 
 function App() {
+  const { isModal } = useSelector((state) => state.cart);
   return (
     <Container>
       <Header />
       <Content />
-      {/* <ProductList/> */}
+      {isModal && <Modal />}
     </Container>
   );
 }

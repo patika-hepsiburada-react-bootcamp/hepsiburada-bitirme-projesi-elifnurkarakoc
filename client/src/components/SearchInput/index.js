@@ -27,9 +27,9 @@ const SearchInput = () => {
             onChange={(e) => setSearchValue(e.target.value)}
           ></input>
         </label>
-        {searchValue.trim().length === 1 && (
+        {/* {searchValue.trim().length === 1 && (
           <div className={styles.alert}>En az iki karakter giriniz</div>
-        )}
+        )} */}
       </div>
     </>
   );

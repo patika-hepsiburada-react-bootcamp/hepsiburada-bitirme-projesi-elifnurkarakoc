@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./index.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteProductToCart } from "redux/slices/CartSlice";
+import {  useSelector,useDispatch } from "react-redux";
+import { showModal } from "redux/slices/CartSlice";
 const BasketContent = () => {
   const { items } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const handleClick = (item) => {
-    dispatch(deleteProductToCart(item));
+    dispatch(showModal(item));
+    console.log(item);
+    //dispatch(deleteProductToCart(item));
   };
   return items.map((item, index) => (
     <div key={index} className={styles.item}>

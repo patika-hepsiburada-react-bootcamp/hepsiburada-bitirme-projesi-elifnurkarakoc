@@ -6,7 +6,7 @@ import { BasketContent } from "components";
 const Basket = () => {
   const [hover, setHover] = useState(false);
   const { items } = useSelector((state) => state.cart);
-
+  
   return (
     <div
       className={styles.basket}
@@ -19,7 +19,7 @@ const Basket = () => {
       </button>
       {hover && (
         <div className={styles.basket_content}>
-          <BasketContent />
+          <BasketContent  />
         </div>
       )}
     </div>
