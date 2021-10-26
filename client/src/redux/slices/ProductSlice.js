@@ -14,6 +14,7 @@ export const ProductSlice = createSlice({
     colorFilters: {},
     brandFilters: {},
     selectedFilter: [],
+    sort: "",
     loading: false,
     error: null,
   },
@@ -34,8 +35,14 @@ export const ProductSlice = createSlice({
       state.brandFilters = getCountProperty(filteredItems, "brand");
     },
     updateSelectedFilterKey: (state, action) => {
-     state.selectedFilter = action.payload;
+      state.selectedFilter = action.payload;
     },
+    updateSort: (state, action) => {
+      state.sort = action.payload;
+      console.log("sort", state.sort);
+
+    },
+    
   },
   extraReducers: {
     [getProductAsync.pending]: (state) => {
@@ -59,5 +66,6 @@ export const {
   updateProducts,
   updateFilter,
   updateSelectedFilterKey,
+  updateSort,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;

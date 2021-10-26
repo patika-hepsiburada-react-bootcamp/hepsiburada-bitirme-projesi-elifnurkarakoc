@@ -1,16 +1,29 @@
 import React from "react";
 import styles from "./index.module.css";
+import { updateSort } from "redux/slices/ProductSlice";
+import { useDispatch } from "react-redux";
+
 const SelectBox = () => {
+  const dispatch = useDispatch();
+  const handleClick = (e) => {
+    console.log("e.target.value", e.target.value);
+    dispatch(updateSort(e.target.value));
+  };
   return (
     <div className={styles.selectbox}>
-      <select>
-        <option className={styles.none} defaultValue>
+      <select onClick={handleClick}>
+        <option className={styles.none} value="">
           Sıralama
         </option>
-        <option value="SORT_BY_PRICE_ASC">En Düşük Fiyat</option>
-        <option value="SORT_BY_PRICE_DESC">En Yüksek Fiyat</option>
-        <option value="SORT_BY_LATEST_ASC">En Yeniler (A&gt;Z)</option>
-        <option value="SORT_BY_LATEST_DESC">En Yeniler (Z&gt;A)</option>
+        {/* 
+        {Object.entries(sortValues).map(([key, value]) => {
+          console.log({ key });
+          console.log({ value });
+        })} */}
+        <option value="price_asc">En Düşük Fiyat</option>
+        <option value="price_desc">En Yüksek Fiyat</option>
+        <option value="latest_asc">En Yeniler (A&gt;Z)</option>
+        <option value="latest_desc">En Yeniler (Z&gt;A)</option>
       </select>
     </div>
   );

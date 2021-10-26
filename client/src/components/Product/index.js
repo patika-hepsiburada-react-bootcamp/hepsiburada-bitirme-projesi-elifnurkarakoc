@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToCart } from "redux/slices/CartSlice";
+import { addProductToCart, } from "redux/slices/CartSlice";
 const Product = (product) => {
   const [hover, setHover] = useState(false);
   const { items } = useSelector((state) => state.cart);
@@ -14,6 +14,7 @@ const Product = (product) => {
 
   const handleClick = () => {
     dispatch(addProductToCart(product));
+
   };
 
   return (

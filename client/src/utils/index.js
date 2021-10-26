@@ -18,7 +18,7 @@ export const getCountProperty = (items, propertyName) => {
 
 export const filterSelectedKeyProducts = (items, selectedKeys) => {
   let temp = [];
-//   console.log(selectedKeys);
+  //   console.log(selectedKeys);
   if (selectedKeys.length >= 1) {
     temp = items.filter(
       (item) => item[selectedKeys[0][0]] === selectedKeys[0][1]
@@ -32,4 +32,19 @@ export const filterSelectedKeyProducts = (items, selectedKeys) => {
     // console.log("filteredItems", temp);
   }
   return temp;
+};
+
+export const updateProductsSort = (visibleItems, sortValue) => {
+  console.log({visibleItems});
+  var arrayForSort = [...visibleItems];
+  if (sortValue === "price_asc") {
+    return arrayForSort.sort((a, b) => a.price - b.price);
+  } else if (sortValue === "price_desc") {
+    return arrayForSort.sort((a, b) => b.price - a.price);
+  } else if (sortValue === "latest_asc") {
+    return arrayForSort.sort((a, b) => new Date(a.createdDate) - new Date(b.createdDate));
+  } else if (sortValue === "latest_desc") {
+    return arrayForSort.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate));
+  }
+  return visibleItems;
 };

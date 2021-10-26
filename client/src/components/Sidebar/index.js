@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./index.module.css";
 import { filterSelectedKeyProducts } from "utils";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,12 +7,11 @@ import {
   updateFilter,
   updateSelectedFilterKey,
 } from "redux/slices/ProductSlice";
+
 const Sidebar = ({ title, selectedFilter, propertyName, filterValues }) => {
-  const { visibleItems, items } = useSelector((state) => state.products);
+  const {  items } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(visibleItems);
-  }, []);
+
   var filteredItems = {};
   const handleClick = (key) => {
     // gelen key selected itema ekle
