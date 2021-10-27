@@ -1,8 +1,9 @@
 const express = require('express');
 const { nanoid } = require('nanoid');
-const products = require("./constant");
+const { generateProducts } = require('./generate');
+// const products = require("./constant");
 const router = express.Router();
-
+const products=generateProducts();
 router.get('/', (req, res) => {
   res.json(products);
 });
