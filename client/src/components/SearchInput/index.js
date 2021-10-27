@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { useDispatch } from "react-redux";
-import { searchProducts } from "redux/slices/ProductSlice";
+import { searchProducts, updateSearchValue } from "redux/slices/ProductSlice";
 const SearchInput = () => {
   const dispatch = useDispatch();
-  
+
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     if (searchValue.trim().length >= 2) {
-      // console.log(searchValue);
+      dispatch(updateSearchValue(searchValue));
       dispatch(searchProducts(searchValue));
     } else {
+      dispatch(updateSearchValue(""));
       console.log("En az iki karakter giriniz.");
     }
   }, [searchValue]);
@@ -24,7 +25,7 @@ const SearchInput = () => {
             type="text"
             placeholder={"25 milyon’dan fazla ürün içerisinde ara"}
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onInput={(e) => setSearchValue(e.target.value)}
           ></input>
         </label>
         {/* {searchValue.trim().length === 1 && (

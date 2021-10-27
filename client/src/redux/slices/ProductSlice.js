@@ -22,12 +22,15 @@ export const ProductSlice = createSlice({
     indexOfLastProducts:0,
   },
   reducers: {
-    searchProducts: (state, action) => {
-      state.searchValue = action.payload.toLowerCase();
+    searchProducts: (state) => {
+      // state.searchValue = action.payload.toLowerCase();
       state.visibleItems = state.searchValue
         ? state.items.filter((p) => p.name.toLowerCase().includes(state.searchValue))
         : state.items;
       
+    },
+    updateSearchValue:(state,action) =>{
+      state.searchValue=action.payload.toLowerCase();
     },
     updateProducts: (state, action) => {
       const filteredItems = action.payload;
@@ -78,5 +81,6 @@ export const {
   updateSelectedFilterKey,
   updateSort,
   getCurrentProducts,
+  updateSearchValue
 } = ProductSlice.actions;
 export default ProductSlice.reducer;
