@@ -1,21 +1,23 @@
 .product {
   width: 254px;
-  height: 472px;
   cursor: pointer;
 }
-.product:hover {
-  border: 1px solid #cdcdcd;
-  border-radius: 6px;
+
+.productWrapper {
 }
-.product .product_image {
-  width: 224px;
-  height: 332px;
+.productContent {
+  margin-top: 9px;
+  padding-left: 14px;
+}
+.productImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   border: 1px solid #e5e5e5;
 }
+
 .product .title {
-  /* width: 230px;
-  height: 32px; */
-  margin-top: 9px;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -43,8 +45,6 @@
 }
 
 .product .price {
-  /* width: 159px;
-  height: 37px; */
   margin-top: 13px;
   font-style: normal;
   font-weight: bold;
@@ -54,21 +54,18 @@
   color: #000000;
 }
 
-.product .no_discount_price {
-  /* width: 159px;
-  height: 17px; */
+.product .noDiscountPrice {
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
   line-height: 18px;
-  /* text-decoration-line: line-through; */
   color: #9b9b9b;
 }
-.product .no_discount_price .line {
+.product .noDiscountPrice .line {
   text-decoration-line: line-through;
 }
 
-.product .no_discount_price .red {
+.product .noDiscountPrice .red {
   width: 32px;
   height: 20px;
   font-style: normal;
@@ -77,42 +74,4 @@
   line-height: 18px;
   color: #f90000;
   text-decoration-line: none;
-}
-
-.add_cart_button {
-  width: 233px;
-  height: 32px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  display: flex;
-  color: #ff6000;
-  margin-top: 15px;
-  background: rgba(255, 96, 0, 0.11);
-  border-radius: 8px;
-  margin-bottom: 20px;
-  margin-left: 11px;
-  margin-right: 10px;
-}
-
-.passive_button {
-  width: 233px;
-  height: 30px;
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 18px;
-display: flex;
-align-items: center;
-text-align: center;
-color: #B0B0B0;
-}
-.product_container {
-  padding: 10px;
-  height:465px;
-  text-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }

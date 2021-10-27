@@ -10,3 +10,4 @@ export { default as Sidebar } from "components/Sidebar";
 export { default as BasketContent } from "components/BasketContent";
 export { default as Pagination } from "components/Pagination";
 export { default as Modal } from "components/Modal";
+export { default as ProductHover } from "components/ProductHover";

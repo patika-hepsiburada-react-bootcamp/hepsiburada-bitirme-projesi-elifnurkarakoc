@@ -15,22 +15,24 @@ export const ProductSlice = createSlice({
     brandFilters: {},
     selectedFilter: [],
     sort: "",
-    searchValue:"",
+    searchValue: "",
     loading: false,
     error: null,
-    indexOfFirstProducts:0,
-    indexOfLastProducts:0,
+    indexOfFirstProducts: 0,
+    indexOfLastProducts: 0,
   },
   reducers: {
-    searchProducts: (state) => {
+    searchProducts: (state, action) => {
       // state.searchValue = action.payload.toLowerCase();
-      state.visibleItems = state.searchValue
-        ? state.items.filter((p) => p.name.toLowerCase().includes(state.searchValue))
-        : state.items;
-      
-    },
-    updateSearchValue:(state,action) =>{
-      state.searchValue=action.payload.toLowerCase();
+      // state.visibleItems = state.searchValue
+      //   ? state.items.filter((p) => p.name.toLowerCase().includes(state.searchValue))
+      //   : state.items;
+      console.log(action.payload.toLowerCase());
+      const value = action.payload.toLowerCase();
+      var temp=value.trim().length >= 2
+      ? state.items.filter((p) => p.name.toLowerCase().includes(value))
+      : state.items;
+      state.visibleItems = temp;
     },
     updateProducts: (state, action) => {
       const filteredItems = action.payload;
@@ -47,15 +49,13 @@ export const ProductSlice = createSlice({
     updateSort: (state, action) => {
       state.sort = action.payload;
       console.log("sort", state.sort);
-
     },
-    getCurrentProducts: (state,action)=>{
-      var {indexOfFirstProducts, indexOfLastProducts}=action.payload;
-      state.indexOfFirstProducts=indexOfFirstProducts;
-      state.indexOfLastProducts=indexOfLastProducts;
+    getCurrentProducts: (state, action) => {
+      var { indexOfFirstProducts, indexOfLastProducts } = action.payload;
+      state.indexOfFirstProducts = indexOfFirstProducts;
+      state.indexOfLastProducts = indexOfLastProducts;
       console.log(action.payload);
-    }
-    
+    },
   },
   extraReducers: {
     [getProductAsync.pending]: (state) => {
@@ -81,6 +81,5 @@ export const {
   updateSelectedFilterKey,
   updateSort,
   getCurrentProducts,
-  updateSearchValue
 } = ProductSlice.actions;
 export default ProductSlice.reducer;
