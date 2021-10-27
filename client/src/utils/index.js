@@ -35,16 +35,33 @@ export const filterSelectedKeyProducts = (items, selectedKeys) => {
 };
 
 export const updateProductsSort = (visibleItems, sortValue) => {
-  console.log({visibleItems});
+  console.log({ visibleItems });
   var arrayForSort = [...visibleItems];
   if (sortValue === "price_asc") {
     return arrayForSort.sort((a, b) => a.price - b.price);
   } else if (sortValue === "price_desc") {
     return arrayForSort.sort((a, b) => b.price - a.price);
   } else if (sortValue === "latest_asc") {
-    return arrayForSort.sort((a, b) => new Date(a.createdDate) - new Date(b.createdDate));
+    return arrayForSort.sort(
+      (a, b) => new Date(a.createdDate) - new Date(b.createdDate)
+    );
   } else if (sortValue === "latest_desc") {
-    return arrayForSort.sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate));
+    return arrayForSort.sort(
+      (a, b) => new Date(b.createdDate) - new Date(a.createdDate)
+    );
   }
   return visibleItems;
+};
+
+export const getBasketDataFromLocalStorage = () => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  if (!cartItems) {
+    return [];
+  }
+  console.log(cartItems);
+  return cartItems;
+};
+
+export const setBasketDataToLocalStorage = (products) => {
+  localStorage.setItem("cartItems", JSON.stringify(products));
 };

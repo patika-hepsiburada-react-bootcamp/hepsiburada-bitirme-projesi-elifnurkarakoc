@@ -5,21 +5,21 @@ import { BasketContent } from "components";
 
 const Basket = () => {
   const [hover, setHover] = useState(false);
-  const { items } = useSelector((state) => state.cart);
-  
+  const { cartItems } = useSelector((state) => state.cart);
+
   return (
     <div
       className={styles.basket}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <button type="button" className={styles.basket_button}>
-        <span className={styles.basket_text}>Sepetim</span>
-        <span className={styles.basket_badge}>{items.length}</span>
+      <button type="button" className={styles.basketButton}>
+        <p className={styles.basketText}>Sepetim</p>
+        <div className={styles.basketBadge}>{cartItems && cartItems.length}</div>
       </button>
       {hover && (
-        <div className={styles.basket_content}>
-          <BasketContent  />
+        <div className={styles.basketContent}>
+          <BasketContent />
         </div>
       )}
     </div>

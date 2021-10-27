@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart, } from "redux/slices/CartSlice";
 const Product = (product) => {
   const [hover, setHover] = useState(false);
-  const { items } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   
@@ -58,7 +58,7 @@ const Product = (product) => {
             )}
           </>
         )}
-        {hover && items.some((item) => item.id === product.id) && (
+        {hover&&cartItems && cartItems?.some((item) => item.id === product.id) && (
           <>
             <button className={styles.passive_button}>
               Bu ürünü sepete ekleyemezsiniz.
@@ -66,7 +66,7 @@ const Product = (product) => {
           </>
         )}
 
-        {hover && !items.some((item) => item.id === product.id) && (
+        {hover && !cartItems?.some((item) => item.id === product.id) && (
           <>
             <button className={styles.add_cart_button} onClick={handleClick}>
               Sepete Ekle
