@@ -6,3 +6,9 @@
   grid-auto-flow: row;
   margin-left: 16px;
 }
+@media (min-width: 1900px) {
+  .productlist {
+    gap: 14px 157px;
+    margin-left: 68px;
+  }
+}
