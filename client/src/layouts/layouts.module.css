@@ -1,7 +1,6 @@
 .container {
   font-family: Roboto;
-  /* width: 1440px; */
-  height: 1987px;
+  height: 1528px;
 
   background: #ffffff;
 }
@@ -30,5 +29,13 @@
   flex-direction: column;
 }
 
-.content .container .products {
+.products {
+  width: 1058px;
+  height: 472px;
+}
+
+.pagination {
+  width: 33px;
+  height: 33px;
+  padding: 0px 304px 298px 304px;
 }

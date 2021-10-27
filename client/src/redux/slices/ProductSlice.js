@@ -18,6 +18,8 @@ export const ProductSlice = createSlice({
     searchValue:"",
     loading: false,
     error: null,
+    indexOfFirstProducts:0,
+    indexOfLastProducts:0,
   },
   reducers: {
     searchProducts: (state, action) => {
@@ -44,6 +46,12 @@ export const ProductSlice = createSlice({
       console.log("sort", state.sort);
 
     },
+    getCurrentProducts: (state,action)=>{
+      var {indexOfFirstProducts, indexOfLastProducts}=action.payload;
+      state.indexOfFirstProducts=indexOfFirstProducts;
+      state.indexOfLastProducts=indexOfLastProducts;
+      console.log(action.payload);
+    }
     
   },
   extraReducers: {
@@ -69,5 +77,6 @@ export const {
   updateFilter,
   updateSelectedFilterKey,
   updateSort,
+  getCurrentProducts,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;

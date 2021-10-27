@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { Container, Header, Content } from "layouts";
+import { Container, Header, Content, Footer } from "layouts";
 import { useSelector } from "react-redux";
 import { Modal } from "components";
 
@@ -10,6 +10,7 @@ function App() {
     <Container>
       <Header />
       <Content />
+      <Footer/>
       {isModal && <Modal />}
     </Container>
   );

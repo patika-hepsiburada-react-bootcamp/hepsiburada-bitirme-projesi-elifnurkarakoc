@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "layouts/layouts.module.css";
 import { ProductList, Sidebar, SubHeader } from "components";
+// import { Footer } from "layouts";
 import { useSelector } from "react-redux";
 import { sortValues } from "constants/constants";
 const Content = () => {
   const { colorFilters,brandFilters,selectedFilter } = useSelector((state) => state.products);
-  console.log({colorFilters});
-  console.log({sortValues});
+  // console.log({colorFilters});
+  // console.log({sortValues});
   return (
     <div className={styles.content}>
       <SubHeader />
@@ -18,7 +19,9 @@ const Content = () => {
         </div>
         <div className={styles.products}>
           <ProductList />
+          {/* <Footer /> */}
         </div>
+        
       </div>
     </div>
   );
