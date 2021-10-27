@@ -38,6 +38,10 @@ export const BasketSlice = createSlice({
   },
 });
 
-export const { addProductToBasket, deleteProductToBasket, showModal, closeModal } =
-  BasketSlice.actions;
+export const {
+  addProductToBasket,
+  deleteProductToBasket,
+  showModal,
+  closeModal,
+} = BasketSlice.actions;
 export default BasketSlice.reducer;
