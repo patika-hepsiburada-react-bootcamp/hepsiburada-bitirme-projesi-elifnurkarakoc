@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToCart } from "redux/slices/CartSlice";
+import { addProductToBasket } from "redux/slices/BasketSlice";
 const ProductHover = (product) => {
   console.log({ product });
-  const { cartItems } = useSelector((state) => state.cart);
+  const { basketItems } = useSelector((state) => state.basket);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(addProductToCart(product));
+    dispatch(addProductToBasket(product));
   };
 
   return (
@@ -20,7 +20,7 @@ const ProductHover = (product) => {
         <div className={styles.title}>{product.title}</div>
 
         <div className={styles.buttons}>
-          {cartItems && cartItems?.some((item) => item.id === product.id) && (
+          {basketItems && basketItems?.some((item) => item.id === product.id) && (
             <>
               <button className={styles.passiveButton}>
                 Bu ürünü sepete ekleyemezsiniz.
@@ -28,7 +28,7 @@ const ProductHover = (product) => {
             </>
           )}
 
-          {!cartItems?.some((item) => item.id === product.id) && (
+          {!basketItems?.some((item) => item.id === product.id) && (
             <>
               <button className={styles.addButton} onClick={handleClick}>
                 Sepete Ekle

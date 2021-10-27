@@ -25,12 +25,12 @@ export const ProductSlice = createSlice({
     searchProducts: (state, action) => {
       // state.searchValue = action.payload.toLowerCase();
       // state.visibleItems = state.searchValue
-      //   ? state.items.filter((p) => p.name.toLowerCase().includes(state.searchValue))
+      //   ? state.items.filter((p) => p.title.toLowerCase().includes(state.searchValue))
       //   : state.items;
       console.log(action.payload.toLowerCase());
       const value = action.payload.toLowerCase();
       var temp=value.trim().length >= 2
-      ? state.items.filter((p) => p.name.toLowerCase().includes(value))
+      ? state.items.filter((p) => p.title.toLowerCase().includes(value))
       : state.items;
       state.visibleItems = temp;
     },

@@ -5,4 +5,4 @@ export const sortValues = {
   "latest_desc": "En Yeniler (Z>A)",
 };
 
-console.log(typeof sortValues);
+// console.log(typeof sortValues);

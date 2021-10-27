@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProductToCart, closeModal } from "redux/slices/CartSlice";
+import { deleteProductToBasket, closeModal } from "redux/slices/BasketSlice";
 const Modal = () => {
-  const { deleteItem } = useSelector((state) => state.cart);
+  const { deleteItem } = useSelector((state) => state.basket);
   const dispatch = useDispatch();
   const handleConfirmClick = () => {
-    dispatch(deleteProductToCart(deleteItem));
+    dispatch(deleteProductToBasket(deleteItem));
   };
   const handleCloseClick = () => {
     dispatch(closeModal(deleteItem));

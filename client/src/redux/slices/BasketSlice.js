@@ -5,28 +5,28 @@ import {
 } from "utils";
 
 var data = getBasketDataFromLocalStorage();
-export const CartSlice = createSlice({
-  name: "cart",
+export const BasketSlice = createSlice({
+  name: "basket",
   initialState: {
-    cartItems: data ? data : [],
+    basketItems: data ? data : [],
     isModal: false,
     deleteItem: {},
   },
   reducers: {
-    addProductToCart: (state, action) => {
+    addProductToBasket: (state, action) => {
       const item = { ...action.payload, addedDate: new Date() };
-      state.cartItems = [...state.cartItems, item].sort(
+      state.basketItems = [...state.basketItems, item].sort(
         (a, b) => new Date(b.addedDate) - new Date(a.addedDate)
       );
-      setBasketDataToLocalStorage(state.cartItems);
+      setBasketDataToLocalStorage(state.basketItems);
     },
-    deleteProductToCart: (state, action) => {
-      const index = state.cartItems?.findIndex(
+    deleteProductToBasket: (state, action) => {
+      const index = state.basketItems?.findIndex(
         (item) => item.id === action.payload.id
       );
-      state.cartItems.splice(index, 1);
+      state.basketItems.splice(index, 1);
       state.isModal = false;
-      setBasketDataToLocalStorage(state.cartItems);
+      setBasketDataToLocalStorage(state.basketItems);
     },
     showModal: (state, action) => {
       state.deleteItem = action.payload;
@@ -38,6 +38,6 @@ export const CartSlice = createSlice({
   },
 });
 
-export const { addProductToCart, deleteProductToCart, showModal, closeModal } =
-  CartSlice.actions;
-export default CartSlice.reducer;
+export const { addProductToBasket, deleteProductToBasket, showModal, closeModal } =
+  BasketSlice.actions;
+export default BasketSlice.reducer;

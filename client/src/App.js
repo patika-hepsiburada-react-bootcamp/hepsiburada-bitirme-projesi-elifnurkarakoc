@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Modal } from "components";
 
 function App() {
-  const { isModal } = useSelector((state) => state.cart);
+  const { isModal } = useSelector((state) => state.basket);
   return (
     <Container>
       <Header />

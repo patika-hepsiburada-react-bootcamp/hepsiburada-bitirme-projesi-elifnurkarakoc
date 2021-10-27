@@ -6,8 +6,9 @@ import {
   updateProducts,
   updateFilter,
   updateSelectedFilterKey,
+  updateSort
 } from "redux/slices/ProductSlice";
-import { updateSort } from "redux/slices/ProductSlice";
+
 
 const Sidebar = ({ title, selectedFilter, propertyName, filterValues }) => {
   const { items } = useSelector((state) => state.products);
