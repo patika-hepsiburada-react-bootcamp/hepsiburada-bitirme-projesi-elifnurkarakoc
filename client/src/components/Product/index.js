@@ -1,20 +1,9 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
-// import { useDispatch, useSelector } from "react-redux";
-// import { addProductToCart, } from "redux/slices/CartSlice";
+
 import { ProductHover } from "components";
 const Product = (product) => {
   const [hover, setHover] = useState(false);
-  // const { cartItems } = useSelector((state) => state.cart);
-  // const dispatch = useDispatch();
-
-  const discountPrice = (value) =>
-    (value - (value * product.discountPercentage) / 100).toFixed(2);
-
-  // const handleClick = () => {
-  //   dispatch(addProductToCart(product));
-
-  // };
 
   return (
     <div
@@ -28,7 +17,7 @@ const Product = (product) => {
             <img src={product.image} alt="" />
           </div>
           <div className={styles.productContent}>
-            <div className={styles.title}>{product.name}</div>{" "}
+            <div className={styles.title}>{product.title}</div>{" "}
             <div className={styles.filter}>
               <div className={styles.info}>
                 <p>
@@ -44,7 +33,7 @@ const Product = (product) => {
               </div>
             </div>
             <div className={styles.price}>
-              {discountPrice(product.price)} TL
+              {product.discountPrice} TL
             </div>
             {product.discountPercentage !== 0 && (
               <div className={styles.noDiscountPrice}>

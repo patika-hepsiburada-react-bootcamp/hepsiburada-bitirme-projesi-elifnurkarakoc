@@ -14,8 +14,8 @@ const BasketContent = () => {
         <img src={item.image} alt="" />
       </div>
       <div className={styles.content}>
-        <div className={styles.title}>{item.name}</div>
-        <div className={styles.title}>Telefon</div>
+        <div className={styles.title}>{item.title}</div>
+        <div className={styles.title}>{item.category}</div>
         <div className={styles.deleteWrapper}>
           <button className={styles.delete} onClick={() => handleClick(item)}>
             <span>Kaldır</span>

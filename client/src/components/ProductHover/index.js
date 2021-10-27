@@ -17,7 +17,7 @@ const ProductHover = (product) => {
         <div className={styles.image}>
           <img src={product.image} alt="" />
         </div>
-        <div className={styles.title}>{product.name}</div>
+        <div className={styles.title}>{product.title}</div>
 
         <div className={styles.buttons}>
           {cartItems && cartItems?.some((item) => item.id === product.id) && (
