@@ -1,10 +1,13 @@
 export const getCountProperty = (items, propertyName) => {
   var result = {};
-  items.forEach((index) =>
-    !Object.prototype.hasOwnProperty.call(result, index[propertyName])
-      ? (result[index[propertyName]] = 1)
-      : (result[index[propertyName]] += 1)
-  );
+  if (items) {
+    items.forEach((index) =>
+      !Object.prototype.hasOwnProperty.call(result, index[propertyName])
+        ? (result[index[propertyName]] = 1)
+        : (result[index[propertyName]] += 1)
+    );
+  }
+
   return result;
   //   console.log(result);
 };

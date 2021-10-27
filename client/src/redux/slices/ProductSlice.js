@@ -40,8 +40,10 @@ export const ProductSlice = createSlice({
     },
     updateFilter: (state, action) => {
       const { filteredItems } = action.payload;
+      console.log(filteredItems);
       state.colorFilters = getCountProperty(filteredItems, "color");
       state.brandFilters = getCountProperty(filteredItems, "brand");
+      console.log(state.brandFilters);
     },
     updateSelectedFilterKey: (state, action) => {
       state.selectedFilter = action.payload;
