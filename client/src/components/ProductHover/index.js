@@ -12,17 +12,17 @@ const ProductHover = (product) => {
   };
 
   return (
-    <div className={styles.product}>
+    <div data-testid="product-hover" className={styles.product}>
       <div className={styles.productWrapper}>
         <div className={styles.image}>
           <img src={product.image} alt="" />
         </div>
         <div className={styles.title}>{product.title}</div>
 
-        <div className={styles.buttons}>
+        <div  className={styles.buttons}>
           {basketItems && basketItems?.some((item) => item.id === product.id) && (
             <>
-              <button className={styles.passiveButton}>
+              <button data-testid="not-add-product" className={styles.passiveButton}>
                 Bu ürünü sepete ekleyemezsiniz.
               </button>
             </>
@@ -30,7 +30,7 @@ const ProductHover = (product) => {
 
           {!basketItems?.some((item) => item.id === product.id) && (
             <>
-              <button className={styles.addButton} onClick={handleClick}>
+              <button data-testid="add-product" className={styles.addButton} onClick={handleClick}>
                 Sepete Ekle
               </button>
             </>

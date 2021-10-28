@@ -12,7 +12,7 @@ const Product = (product) => {
       onMouseLeave={() => setHover(false)}
     >
       {!hover && (
-        <div className={styles.productWrapper}>
+        <div data-testid="product" className={styles.productWrapper}>
           <div className={styles.productImage}>
             <img src={product.image} alt="" />
           </div>
@@ -46,7 +46,7 @@ const Product = (product) => {
           </div>
         </div>
       )}
-      {hover && <ProductHover {...product} />}
+      {hover && <ProductHover data-testid="product-hover" {...product} />}
     </div>
   );
 };
