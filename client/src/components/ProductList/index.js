@@ -33,11 +33,11 @@ const ProductList = () => {
   }
 
   return (
-    <div className={styles.productlist}>
+    <div data-testid="products" className={styles.productlist}>
       {visibleItems
         .slice(indexOfFirstProducts, indexOfLastProducts)
         .map((product) => (
-          <Product key={product.id} {...product} />
+          <Product data-testid="product-item" key={product.id} {...product} />
         ))}
     </div>
   );
