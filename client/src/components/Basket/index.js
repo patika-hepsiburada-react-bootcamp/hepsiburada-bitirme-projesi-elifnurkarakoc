@@ -13,12 +13,12 @@ const Basket = () => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <button type="button" className={styles.basketButton}>
+      <button data-testid="basket-button" type="button" className={styles.basketButton}>
         <p className={styles.basketText}>Sepetim</p>
-        <div className={styles.basketBadge}>{basketItems && basketItems.length}</div>
+        <div data-testid="basket-badge" className={styles.basketBadge}>{basketItems && basketItems.length}</div>
       </button>
       {hover && (
-        <div className={styles.basketContent}>
+        <div data-testid="basket-content" className={styles.basketContent}>
           <BasketContent />
         </div>
       )}
