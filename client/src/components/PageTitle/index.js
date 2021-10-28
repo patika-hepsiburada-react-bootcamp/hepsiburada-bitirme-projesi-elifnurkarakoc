@@ -5,7 +5,7 @@ const PageTitle = () => {
   const {searchValue} =useSelector(state=>state.products);
   return (
     <div className={styles.page_title}>
-      <div className={styles.text}>iPhone iOS cep telefonu</div>
+      <div data-testid="page-title" className={styles.text}>iPhone iOS cep telefonu</div>
       <div className={styles.search_text}>
         Aranan Kelime: <span> {searchValue} </span>
       </div>
