@@ -23,17 +23,25 @@ const Pagination = ({ productPerPage, totalCount, paginate }) => {
     }
   };
   return (
-    <div className={styles.pagination}>
+    <div data-testid="pagination" className={styles.pagination}>
       <ul>
-        <button className={styles.item} onClick={handleBackClick}>&lt;</button>
+        <button data-testid="back-button" className={styles.item} onClick={handleBackClick}>
+          &lt;
+        </button>
         {pageNumbers.map((number) => (
           <li key={number}>
-            <button onClick={() => paginate(number)} href="!#"  className={styles.item}>
+            <button
+              onClick={() => paginate(number)}
+              href="!#"
+              className={styles.item}
+            >
               {number}
             </button>
           </li>
         ))}
-        <button className={styles.item} onClick={handleNextClick}>&gt;</button>
+        <button data-testid="next-button" className={styles.item} onClick={handleNextClick}>
+          &gt;
+        </button>
       </ul>
     </div>
   );
