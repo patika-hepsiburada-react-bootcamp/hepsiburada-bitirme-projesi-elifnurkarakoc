@@ -42,7 +42,7 @@ const Sidebar = ({ title, selectedFilter, propertyName, filterValues }) => {
   };
   return (
     <div className={styles.sidebar}>
-      <p className={styles.title}>{title}</p>
+      <p data-testid="sidebar" className={styles.title}>{title}</p>
       {propertyName !== "sort" &&
         Object.entries(filterValues).map(([key, value]) => (
           <p key={key} className={styles.text} onClick={() => handleClick(key)}>
