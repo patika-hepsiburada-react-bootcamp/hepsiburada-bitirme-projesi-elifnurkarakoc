@@ -22,11 +22,13 @@ describe("/products endpoint tests", () => {
         res.body.every((i) =>
           expect(i).to.have.all.keys(
             "id",
-            "name",
+            "title",
             "image",
+            "category",
             "brand",
             "color",
             "price",
+            "discountPrice",
             "createdDate",
             "discountPercentage"
           )
@@ -36,16 +38,19 @@ describe("/products endpoint tests", () => {
   });
 
   it("[POST] /products endpoint adds a product.", (done) => {
-    const product =  {
-        id:nanoid(),
-        name: 'Product test',
-        image:'imageurl',
-        brand:'brand',
-        color:'black',
-        price:1000,
-        createdDate:new Date(),
-        discountPercentage:30,
-      }
+    const product = {
+      id: nanoid(),
+      title: "Product test",
+      category:"Telefon",
+      image: "imageurl",
+      brand: "brand",
+      color: "black",
+      price: 1550,
+      discountPrice:1519.00,
+      createdDate: new Date(),
+      discountPercentage: 2,
+    };
+
 
     chai
       .request(server)
@@ -57,14 +62,18 @@ describe("/products endpoint tests", () => {
         res.should.have.status(200);
         res.body.should.be.a("object");
 
-        expect(res.body).to.have.all.keys( "id",
-        "name",
-        "image",
-        "brand",
-        "color",
-        "price",
-        "createdDate",
-        "discountPercentage");
+        expect(res.body).to.have.all.keys(
+          "id",
+          "title",
+          "image",
+          "category",
+          "brand",
+          "color",
+          "price",
+          "discountPrice",
+          "createdDate",
+          "discountPercentage"
+        );
         done();
       });
   });
@@ -78,28 +87,35 @@ describe("/products endpoint tests", () => {
 
         res.body.should.be.a("object");
 
-        expect(res.body).to.have.all.keys( "id",
-        "name",
-        "image",
-        "brand",
-        "color",
-        "price",
-        "createdDate",
-        "discountPercentage");
+        expect(res.body).to.have.all.keys(
+          "id",
+          "title",
+          "image",
+          "category",
+          "brand",
+          "color",
+          "price",
+          "discountPrice",
+          "createdDate",
+          "discountPercentage"
+        );
         done();
       });
   });
 
   it("[PUT] /products/:id endpoint updates a product.", (done) => {
     const data = {
-        name: 'Product test update',
-        image:'imageurl',
-        brand:'brand',
-        color:'black',
-        price:1000,
-        createdDate:new Date(),
-        discountPercentage:30,
+      title: "Product test update",
+      category:"Telefon",
+      image: "imageurl",
+      brand: "brand",
+      color: "black",
+      price: 1550,
+      discountPrice:1519.00,
+      createdDate: new Date(),
+      discountPercentage: 2,
     };
+
 
     chai
       .request(server)
@@ -109,14 +125,18 @@ describe("/products endpoint tests", () => {
         res.should.have.status(200);
         res.body.should.be.a("object");
 
-        expect(res.body).to.have.all.keys( "id",
-        "name",
-        "image",
-        "brand",
-        "color",
-        "price",
-        "createdDate",
-        "discountPercentage");
+        expect(res.body).to.have.all.keys(
+          "id",
+          "title",
+          "image",
+          "category",
+          "brand",
+          "color",
+          "price",
+          "discountPrice",
+          "createdDate",
+          "discountPercentage"
+        );
         done();
       });
   });
@@ -129,14 +149,18 @@ describe("/products endpoint tests", () => {
         res.should.have.status(200);
         res.body.should.be.a("object");
 
-        expect(res.body).to.have.all.keys( "id",
-        "name",
-        "image",
-        "brand",
-        "color",
-        "price",
-        "createdDate",
-        "discountPercentage");
+        expect(res.body).to.have.all.keys(
+          "id",
+          "title",
+          "image",
+          "category",
+          "brand",
+          "color",
+          "price",
+          "discountPrice",
+          "createdDate",
+          "discountPercentage"
+        );
         expect(res.body.id).to.equal(productId);
         done();
       });
