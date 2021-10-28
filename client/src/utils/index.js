@@ -37,6 +37,12 @@ export const filterSelectedKeyProducts = (items, selectedKeys) => {
   return temp;
 };
 
+const sortFn=(a, b)=>{
+  console.log(a);
+  console.log(b);
+  return a === b ? 0 : a < b ? -1 : 1;
+};
+
 export const updateProductsSort = (visibleItems, sortValue) => {
   console.log({ visibleItems });
   var arrayForSort = [...visibleItems];
@@ -45,13 +51,15 @@ export const updateProductsSort = (visibleItems, sortValue) => {
   } else if (sortValue === "price_desc") {
     return arrayForSort.sort((a, b) => b.price - a.price);
   } else if (sortValue === "latest_asc") {
-    return arrayForSort.sort(
-      (a, b) => new Date(a.createdDate) - new Date(b.createdDate)
-    );
+    return arrayForSort.sort((a, b) => {
+      return sortFn(a.title.toLowerCase(),b.title.toLowerCase())||sortFn(a.createdDate,b.createdDate);
+      //return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+    });
   } else if (sortValue === "latest_desc") {
-    return arrayForSort.sort(
-      (a, b) => new Date(b.createdDate) - new Date(a.createdDate)
-    );
+    return arrayForSort.sort((a, b) => {
+      return  sortFn(b.title.toLowerCase(),a.title.toLowerCase())||sortFn(b.createdDate,a.createdDate) ;
+      // return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
+    });
   }
   return visibleItems;
 };
