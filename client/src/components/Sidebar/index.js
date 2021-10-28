@@ -10,8 +10,8 @@ import {
 } from "redux/slices/ProductSlice";
 
 
-const Sidebar = ({ title, selectedFilter, propertyName, filterValues }) => {
-  const { items } = useSelector((state) => state.products);
+const Sidebar = ({ title, propertyName, filterValues }) => {
+  const { items,selectedFilter } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   var filteredItems = {};
