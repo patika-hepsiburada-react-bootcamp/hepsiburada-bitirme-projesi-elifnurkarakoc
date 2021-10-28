@@ -7,11 +7,11 @@ import { Modal } from "components";
 function App() {
   const { isModal } = useSelector((state) => state.basket);
   return (
-    <Container>
-      <Header />
-      <Content />
-      <Footer/>
-      {isModal && <Modal />}
+    <Container data-testid="container">
+      <Header data-testid="header"/>
+      <Content data-testid="content" />
+      <Footer data-testid="footer"/>
+      {isModal && <Modal data-testid="modal" />}
     </Container>
   );
 }
