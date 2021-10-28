@@ -6,16 +6,29 @@ import { Provider } from "react-redux";
 import products from "redux/slices/ProductSlice";
 import basket from "redux/slices/BasketSlice";
 // eslint-disable-next-line no-unused-vars
-// var preloadedState = {
-//   basketItems: [],
-//   isModal: false,
-//   deleteItem: {},
-// };
+var preloadedState = {
+  basketItems: [
+    {
+      id: 55,
+      title: "Apple iPhone 11",
+      image: "https://www.resim.io/i/dQB6m.png",
+      category: "Telefon",
+      brand: "Xiamio",
+      color: "Siyah",
+      price: 1550,
+      discountPrice: "1519.00",
+      discountPercentage: 2,
+      createdDate: "2020-03-05T16:01:38.049Z",
+    },
+  ],
+  isModal: false,
+  deleteItem: {},
+};
 function render(
   ui,
   {
     preloadedState,
-    store = configureStore({ reducer: {products, basket},preloadedState}),
+    store = configureStore({ reducer: { products, basket }, preloadedState }),
     ...renderOptions
   } = {}
 ) {

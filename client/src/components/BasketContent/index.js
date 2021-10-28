@@ -9,15 +9,15 @@ const BasketContent = () => {
     dispatch(showModal(item));
   };
   return basketItems.map((item, index) => (
-    <div key={index} className={styles.item}>
-      <div className={styles.image}>
+    <div  key={index} className={styles.item}>
+      <div data-testid="basket-item" className={styles.image}>
         <img src={item.image} alt="" />
       </div>
       <div className={styles.content}>
         <div className={styles.title}>{item.title}</div>
         <div className={styles.title}>{item.category}</div>
         <div className={styles.deleteWrapper}>
-          <button className={styles.delete} onClick={() => handleClick(item)}>
+          <button data-testid="basket-delete-button" className={styles.delete} onClick={() => handleClick(item)}>
             <span>Kaldır</span>
           </button>
         </div>
