@@ -24,6 +24,7 @@ const SearchInput = () => {
       <div className={styles.search}>
         <label>
           <input
+            data-testid="search-input"
             type="text"
             placeholder={"25 milyon’dan fazla ürün içerisinde ara"}
             value={searchValue}
@@ -31,7 +32,9 @@ const SearchInput = () => {
           ></input>
         </label>
         {searchValue.trim().length === 1 && (
-          <div className={styles.alert}>En az iki karakter giriniz</div>
+          <div data-testid="alert" className={styles.alert}>
+            En az iki karakter giriniz
+          </div>
         )}
       </div>
     </>
