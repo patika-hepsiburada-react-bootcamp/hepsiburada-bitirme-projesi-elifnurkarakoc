@@ -21,3 +21,6 @@
   margin-left: 13.2px;
   
 }
+.item:focus{
+  border: 1px solid #ff6000;;
+}
