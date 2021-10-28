@@ -13,7 +13,7 @@ const Modal = () => {
   };
 
   return (
-    <div className={styles.modal}>
+    <div data-testid="modal" className={styles.modal}>
       <div className={styles.content}>
         <div className={styles.title}>
           Ürünü silmek istediğinize emin misiniz?
@@ -29,12 +29,12 @@ const Modal = () => {
         </div>
         <div className={styles.buttons}>
           <div className={styles.confirm}>
-            <div className={styles.text} onClick={handleConfirmClick}>
+            <div data-testid="confirm-button" className={styles.text} onClick={handleConfirmClick}>
               Evet
             </div>
           </div>
           <div className={styles.close}>
-            <div className={styles.text} onClick={handleCloseClick}>
+            <div data-testid="close-button" className={styles.text} onClick={handleCloseClick}>
               Hayır
             </div>
           </div>
