@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 
 const SubHeader = () => {
   return (
-    <div className={styles.subheader}>
+    <div data-testid="subheader" className={styles.subheader}>
       <PageTitle />
       <SelectBox />
     </div>
