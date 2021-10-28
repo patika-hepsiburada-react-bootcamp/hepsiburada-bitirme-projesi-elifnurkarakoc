@@ -13,7 +13,7 @@ const SelectBox = () => {
   };
   return (
     <div className={styles.selectbox}>
-      <select onClick={handleClick}  defaultValue={'DEFAULT'}>
+      <select data-testid="select" onClick={handleClick}  defaultValue={'DEFAULT'}>
         <option className={styles.none} value="DEFAULT" disabled>
           Sıralama
         </option>
