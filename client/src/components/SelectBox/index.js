@@ -13,13 +13,21 @@ const SelectBox = () => {
   };
   return (
     <div className={styles.selectbox}>
-      <select data-testid="select" onClick={handleClick}  defaultValue={'DEFAULT'}>
+      <select
+        data-testid="select"
+        onClick={handleClick}
+        defaultValue={"DEFAULT"}
+      >
         <option className={styles.none} value="DEFAULT" disabled>
           Sıralama
         </option>
-
         {Object.entries(sortValues).map(([key, value]) => (
-          <option key={key} value={key} selected={sort === key ? true : false}>
+          <option
+            className={styles.option}
+            key={key}
+            value={key}
+            selected={sort === key ? true : false}
+          >
             {value}
           </option>
         ))}

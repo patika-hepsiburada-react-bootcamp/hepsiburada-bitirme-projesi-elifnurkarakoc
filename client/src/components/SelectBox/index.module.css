@@ -8,7 +8,7 @@
 
 select {
   position: absolute;
-  width: 99px;
+  width: 120px;
   height: 48px;
 
   font-family: Roboto;
@@ -20,18 +20,22 @@ select {
 
   display: flex;
   align-items: center;
-  text-align: center;
-
+  /* text-align: center; */
   color: #b0b0b0;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("data:image/svg+xml;charset=utf8,%3Csvg width='21' height='24' viewBox='0 0 21 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.34375 9L10.3438 14L15.3438 9H5.34375Z' fill='%23BDBDBD'/%3E%3C/svg%3E");
+  background: url("../../assets/arrowdown.svg");
   background-repeat: no-repeat;
-  background-position: calc(100% - 1px);
-
+  background-position: calc(100% - 10px);
+  padding-left: 15px;
 }
-
-.none{
+/* .select .option{
+  width:160px;
+  text-align: center;
+} */
+.select .option:selected::after {
+}
+.none {
   display: none;
 }

@@ -14,7 +14,7 @@ const SearchInput = () => {
       console.log("En az iki karakter giriniz.");
     }
     if (searchValue.length === 0) {
-      console.log("searchvalue length 0");
+      //console.log("searchvalue length 0");
       dispatch(searchProducts(searchValue));
     }
   }, [searchValue]);
@@ -26,7 +26,7 @@ const SearchInput = () => {
           <input
             data-testid="search-input"
             type="text"
-            placeholder={"25 milyon’dan fazla ürün içerisinde ara"}
+            placeholder="25 milyon’dan fazla ürün içerisinde ara"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           ></input>
