@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./layouts.module.css";
 import { Pagination } from "components";
 import { useSelector, useDispatch } from "react-redux";
-import { getCurrentProducts } from "redux/slices/ProductSlice";
+import { updateIndexs } from "redux/slices/ProductSlice";
 
 const Footer = () => {
   var indexOfLastProducts,indexOfFirstProducts;
@@ -18,7 +18,7 @@ const Footer = () => {
   useEffect(() => {
     indexOfLastProducts = currentPage * productPerPage;
     indexOfFirstProducts = indexOfLastProducts - productPerPage;
-    dispatch(getCurrentProducts({ indexOfFirstProducts, indexOfLastProducts }));
+    dispatch(updateIndexs({ indexOfFirstProducts, indexOfLastProducts }));
     //console.log(currentPage);
   }, [currentPage]);
   useEffect(()=>{

@@ -27,7 +27,6 @@ export const ProductSlice = createSlice({
       // state.visibleItems = state.searchValue
       //   ? state.items.filter((p) => p.title.toLowerCase().includes(state.searchValue))
       //   : state.items;
-      console.log(action.payload.toLowerCase());
       const value = action.payload.toLowerCase();
       var temp=value.trim().length >= 2
       ? state.items.filter((p) => p.title.toLowerCase().includes(value))
@@ -40,7 +39,7 @@ export const ProductSlice = createSlice({
     },
     updateFilter: (state, action) => {
       const { filteredItems } = action.payload;
-      console.log(filteredItems);
+      console.log(filteredItems,"filteredItems");
       state.colorFilters = getCountProperty(filteredItems, "color");
       state.brandFilters = getCountProperty(filteredItems, "brand");
       console.log(state.brandFilters);
@@ -50,13 +49,11 @@ export const ProductSlice = createSlice({
     },
     updateSort: (state, action) => {
       state.sort = action.payload;
-      console.log("sort", state.sort);
     },
-    getCurrentProducts: (state, action) => {
+    updateIndexs: (state, action) => {
       var { indexOfFirstProducts, indexOfLastProducts } = action.payload;
       state.indexOfFirstProducts = indexOfFirstProducts;
       state.indexOfLastProducts = indexOfLastProducts;
-      console.log(action.payload);
     },
   },
   extraReducers: {
@@ -82,6 +79,6 @@ export const {
   updateFilter,
   updateSelectedFilterKey,
   updateSort,
-  getCurrentProducts,
+  updateIndexs,
 } = ProductSlice.actions;
 export default ProductSlice.reducer;
