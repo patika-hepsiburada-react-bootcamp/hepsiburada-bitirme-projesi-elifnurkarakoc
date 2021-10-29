@@ -9,10 +9,10 @@ const { cache } = require("./redis-service");
 var products;
 
 const setProducts = async function redisProducts() {
-  console.log("go to redis");
+  // console.log("go to redis");
   var value = await cache();
   products = JSON.parse(JSON.stringify(value));
-  console.log(products);
+  // console.log(products);
 };
 setProducts();
 
