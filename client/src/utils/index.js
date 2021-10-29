@@ -7,9 +7,9 @@ export const getCountProperty = (items, propertyName) => {
         : (result[index[propertyName]] += 1)
     );
   }
-
   return result;
 };
+
 export const filterSelectedKeyProducts = (items, selectedKeys) => {
   let temp = [];
   if (selectedKeys.length == 1) {
@@ -19,36 +19,29 @@ export const filterSelectedKeyProducts = (items, selectedKeys) => {
   }
   if (selectedKeys.length > 1) {
     temp = items.filter(
-      (item) => item[selectedKeys[0][0]] === selectedKeys[0][1]&&item[selectedKeys[1][0]] === selectedKeys[1][1]
+      (item) =>
+        item[selectedKeys[0][0]] === selectedKeys[0][1] &&
+        item[selectedKeys[1][0]] === selectedKeys[1][1]
     );
   }
-
   return temp;
 };
 
-export const sortFn=(a, b)=>{
-  console.log(typeof a);
-  console.log(b);
-  return a === b ? 0 : a < b ? -1 : 1;
-};
-
 export const updateProductsSort = (visibleItems, sortValue) => {
-  console.log({ visibleItems });
+  // console.log({ visibleItems });
   var arrayForSort = [...visibleItems];
   if (sortValue === "price_asc") {
     return arrayForSort.sort((a, b) => a.discountPrice - b.discountPrice);
   } else if (sortValue === "price_desc") {
     return arrayForSort.sort((a, b) => b.discountPrice - a.discountPrice);
   } else if (sortValue === "latest_asc") {
-    return arrayForSort.sort((a, b) => {
-      return sortFn(a.title.toLowerCase(),b.title.toLowerCase())||sortFn(a.createdDate,b.createdDate);
-      //return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
-    });
+    return arrayForSort.sort(
+      (a, b) => new Date(a.createdDate) - new Date(b.createdDate)
+    );
   } else if (sortValue === "latest_desc") {
-    return arrayForSort.sort((a, b) => {
-      return  sortFn(b.title.toLowerCase(),a.title.toLowerCase())||sortFn(b.createdDate,a.createdDate) ;
-      // return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
-    });
+    return arrayForSort.sort(
+      (a, b) => new Date(b.createdDate) - new Date(a.createdDate)
+    );
   }
   return visibleItems;
 };
@@ -58,7 +51,7 @@ export const getBasketDataFromLocalStorage = () => {
   if (!cartItems) {
     return [];
   }
-  console.log(cartItems);
+  // console.log(cartItems);
   return cartItems;
 };
 

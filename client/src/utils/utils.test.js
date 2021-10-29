@@ -1,11 +1,9 @@
 import {
   getCountProperty,
   filterSelectedKeyProducts,
-  sortFn,
   updateProductsSort,
   getBasketDataFromLocalStorage,
   setBasketDataToLocalStorage,
-
 } from "utils";
 
 var items = [
@@ -64,10 +62,7 @@ describe("utils function test", () => {
       },
     ]);
   });
-  test("sortFn ", () => {
-    var response = sortFn("xiamio", "apple");
-    expect(response).toEqual(1);
-  });
+
   test("updateProductsSort latest_desc", () => {
     var sortValue = "latest_desc";
     var response = updateProductsSort(items, sortValue);
@@ -80,10 +75,10 @@ describe("utils function test", () => {
     console.log(response);
     expect(response).toEqual(items.reverse());
   });
-  test("setBasketDataToLocalStorage & getBasketDataFromLocalStorage",()=>{
+  test("setBasketDataToLocalStorage & getBasketDataFromLocalStorage", () => {
     setBasketDataToLocalStorage(items);
     var response = getBasketDataFromLocalStorage();
     expect(response).toEqual(items);
-    localStorage.removeItem('cartItems');
+    localStorage.removeItem("cartItems");
   });
 });
