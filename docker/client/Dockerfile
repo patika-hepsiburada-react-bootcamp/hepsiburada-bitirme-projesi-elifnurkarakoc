@@ -12,14 +12,9 @@ WORKDIR /client
 ENV PATH /client/node_modules/.bin:$PATH
 
 # install app dependencies
-# COPY package.json ./
-# COPY package-lock.json ./
-# RUN npm install --silent
-# RUN npm install react-scripts@4.0.3 -g --silent
 RUN npm install
 
-# add client
-COPY . ./
+
 
 # start app
 CMD ["npm", "start"]
