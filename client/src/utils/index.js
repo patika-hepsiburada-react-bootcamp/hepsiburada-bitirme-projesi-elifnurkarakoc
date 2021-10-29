@@ -9,36 +9,25 @@ export const getCountProperty = (items, propertyName) => {
   }
 
   return result;
-  //   console.log(result);
 };
-
-// export const filterProducts = (items, propertyName, filterValue) => {
-//   let filteredProducts = [];
-//   filteredProducts = items.filter((item) => item[propertyName] === filterValue);
-//   console.log(filteredProducts);
-//   return filteredProducts;
-// };
-
 export const filterSelectedKeyProducts = (items, selectedKeys) => {
   let temp = [];
-  //   console.log(selectedKeys);
-  if (selectedKeys.length >= 1) {
+  if (selectedKeys.length == 1) {
     temp = items.filter(
       (item) => item[selectedKeys[0][0]] === selectedKeys[0][1]
     );
-    // console.log("temp", temp);
   }
   if (selectedKeys.length > 1) {
-    temp = temp.filter(
-      (item) => item[selectedKeys[1][0]] === selectedKeys[1][1]
+    temp = items.filter(
+      (item) => item[selectedKeys[0][0]] === selectedKeys[0][1]&&item[selectedKeys[1][0]] === selectedKeys[1][1]
     );
-    // console.log("filteredItems", temp);
   }
+
   return temp;
 };
 
-const sortFn=(a, b)=>{
-  console.log(a);
+export const sortFn=(a, b)=>{
+  console.log(typeof a);
   console.log(b);
   return a === b ? 0 : a < b ? -1 : 1;
 };
