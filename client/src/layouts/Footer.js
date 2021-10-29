@@ -5,21 +5,27 @@ import { useSelector, useDispatch } from "react-redux";
 import { getCurrentProducts } from "redux/slices/ProductSlice";
 
 const Footer = () => {
+  var indexOfLastProducts,indexOfFirstProducts;
   const [productPerPage] = useState(12);
-
+  const [currentPage, setCurrentPage] = useState(1);
   const { visibleItems } = useSelector((state) => state.products);
 
-  const [currentPage, setCurrentPage] = useState(1);
+  
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  var indexOfLastProducts,indexOfFirstProducts;
+  
   const dispatch = useDispatch();
   useEffect(() => {
     indexOfLastProducts = currentPage * productPerPage;
     indexOfFirstProducts = indexOfLastProducts - productPerPage;
     dispatch(getCurrentProducts({ indexOfFirstProducts, indexOfLastProducts }));
+    //console.log(currentPage);
+  }, [currentPage]);
+  useEffect(()=>{
     setCurrentPage(1);
-  }, [currentPage,indexOfLastProducts,indexOfFirstProducts]);
+    //console.log("page 1");
+  },[visibleItems]);
+
   return (
     <div className={styles.pagination}>
       <Pagination

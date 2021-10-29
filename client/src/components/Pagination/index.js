@@ -6,7 +6,7 @@ const Pagination = ({ productPerPage, totalCount, paginate }) => {
   for (let i = 1; i <= Math.ceil(totalCount / productPerPage); i++) {
     pageNumbers.push(i);
   }
-  const handleBackClick = () => {
+  const handlePreviousClick = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
       paginate(currentPage - 1);
@@ -25,7 +25,11 @@ const Pagination = ({ productPerPage, totalCount, paginate }) => {
   return (
     <div data-testid="pagination" className={styles.pagination}>
       <ul>
-        <button data-testid="back-button" className={styles.item} onClick={handleBackClick}>
+        <button
+          data-testid="back-button"
+          className={styles.item}
+          onClick={handlePreviousClick}
+        >
           &lt;
         </button>
         {pageNumbers.map((number) => (
@@ -39,7 +43,11 @@ const Pagination = ({ productPerPage, totalCount, paginate }) => {
             </button>
           </li>
         ))}
-        <button data-testid="next-button" className={styles.item} onClick={handleNextClick}>
+        <button
+          data-testid="next-button"
+          className={styles.item}
+          onClick={handleNextClick}
+        >
           &gt;
         </button>
       </ul>
