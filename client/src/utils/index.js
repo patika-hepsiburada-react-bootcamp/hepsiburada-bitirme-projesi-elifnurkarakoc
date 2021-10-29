@@ -36,9 +36,9 @@ export const updateProductsSort = (visibleItems, sortValue) => {
   console.log({ visibleItems });
   var arrayForSort = [...visibleItems];
   if (sortValue === "price_asc") {
-    return arrayForSort.sort((a, b) => a.price - b.price);
+    return arrayForSort.sort((a, b) => a.discountPrice - b.discountPrice);
   } else if (sortValue === "price_desc") {
-    return arrayForSort.sort((a, b) => b.price - a.price);
+    return arrayForSort.sort((a, b) => b.discountPrice - a.discountPrice);
   } else if (sortValue === "latest_asc") {
     return arrayForSort.sort((a, b) => {
       return sortFn(a.title.toLowerCase(),b.title.toLowerCase())||sortFn(a.createdDate,b.createdDate);
