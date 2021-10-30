@@ -1,18 +1,15 @@
 const express = require("express");
 const { nanoid } = require("nanoid");
-const { generateProducts } = require("./generate");
-// const products = require("./constant");
 const router = express.Router();
-//const products=generateProducts();
+
 const { cache } = require("./redis-service");
 
 var products;
 
+/* Set products with redis*/
 const setProducts = async function redisProducts() {
-  // console.log("go to redis");
   var value = await cache();
   products = JSON.parse(JSON.stringify(value));
-  // console.log(products);
 };
 setProducts();
 
