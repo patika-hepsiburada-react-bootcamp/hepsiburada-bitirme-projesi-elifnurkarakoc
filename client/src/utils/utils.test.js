@@ -32,7 +32,7 @@ var items = [
     createdDate: "2020-03-05T16:01:38.049Z",
   },
 ];
-//{ color: "Siyah", brand: "Xiamio" };//aşağıdkaiyi yapıyı bu hale getirirsem daha iyi olur.
+
 var selectedKeys = [
   ["color", "Siyah"],
   ["brand", "Xiamio"],

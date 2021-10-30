@@ -18,7 +18,7 @@ var preloadedState = {
     ],
     visibleItems: [
       {
-        id: 55,
+        id: 56,
         title: "Apple iPhone 11",
         image: "https://www.resim.io/i/dQB6m.png",
         category: "Telefon",

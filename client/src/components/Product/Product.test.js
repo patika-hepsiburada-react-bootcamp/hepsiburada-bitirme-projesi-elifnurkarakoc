@@ -19,9 +19,4 @@ describe("<Product />", () => {
     render(<Product {...testProduct} />);
     expect(screen.getByTestId("product")).toBeInTheDocument();
   });
-//   test("hover <Product /> component", () => {
-//     render(<Product {...testProduct} />);
-//     fireEvent.mouseOver(screen.getByTestId("product"));
-//     expect(screen.getByTestId("product-hover")).not.toBeNull();
-//   });
 });

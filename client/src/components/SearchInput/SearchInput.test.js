@@ -1,6 +1,5 @@
-import { render, screen } from "test-utils";
+import { render, screen, fireEvent } from "test-utils";
 import { SearchInput } from "components";
-import userEvent from "@testing-library/user-event";
 describe("<SearchInput />", () => {
   test("render <SearchInput /> component ", () => {
     render(<SearchInput />);
@@ -9,14 +8,18 @@ describe("<SearchInput />", () => {
 
   test("search input control - correct input", () => {
     render(<SearchInput />);
-    userEvent.type(screen.getByTestId("search-input"), "hi");
+    fireEvent.change(screen.getByTestId("search-input"), {
+      target: { value: "hi" },
+    });
     expect(screen.getByTestId("search-input")).toHaveValue("hi");
     expect(screen.queryByTestId("alert")).not.toBeInTheDocument();
   });
 
   test("search input control - invalid input", () => {
     render(<SearchInput />);
-    userEvent.type(screen.getByTestId("search-input"), "h");
+    fireEvent.change(screen.getByTestId("search-input"), {
+      target: { value: "h" },
+    });
     expect(screen.getByTestId("search-input")).toHaveValue("h");
     expect(screen.queryByTestId("alert")).toBeInTheDocument();
   });

@@ -1,8 +1,7 @@
 import { fireEvent, render, screen } from "test-utils";
 import { Sidebar } from "components";
 import { sortValues } from "constants/constants";
-import { store } from "redux/store";
-
+import '@testing-library/jest-dom/extend-expect';
 var preloadedState = {
   products: {
     items: [
@@ -93,17 +92,10 @@ describe("<Sidebar />", () => {
       />,
       { preloadedState: preloadedState }
     );
-    let state=store.getState().products;
-    let initialColorFilter = state.colorFilters;
 
     expect(screen.queryByTestId("sidebar")).toBeInTheDocument();
     expect(screen.getByText("Siyah (1)")).toBeInTheDocument();
     fireEvent.click(screen.getByText("Siyah (1)"));
-    state=store.getState().products;
-    let newlyColorFilter =  state.colorFilters;
-    console.log(initialColorFilter);
-    console.log(newlyColorFilter);
-    expect(newlyColorFilter).not.toEqual(initialColorFilter);
   });
   test("render <Sidebar /> component with brand filter", () => {
     render(

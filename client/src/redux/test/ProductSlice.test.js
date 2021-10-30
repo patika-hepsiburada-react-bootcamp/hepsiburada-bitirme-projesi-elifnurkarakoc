@@ -2,7 +2,6 @@ import { store } from "redux/store";
 import {
   searchProducts,
   updateProducts,
-  // updateFilter,
   updateSelectedFilterKey,
   updateSort,
   updateIndexs,
@@ -60,23 +59,6 @@ describe("ProductSlice", () => {
     let newlyVisibleItems = state.visibleItems;
     expect(newlyVisibleItems).not.toEqual(initialVisibleItems);
   });
-
-  //test("updateFilter", () => {
-    //   let state = store.getState().products;
-    //   const initialColorFilters = state.colorFilters;
-    //   const initialBrandFilters = state.brandFilters;
-    //   store.dispatch(updateFilter(sampleFilteredProducts));
-    //   state = store.getState().products;
-    //   const newlyColorFilters = state.colorFilters;
-    //   const newlyBrandFilters = state.brandFilters;
-    //   console.log({newlyBrandFilters});
-    // //   expect(newlyColorFilters).toEqual({ Siyah: 2 });
-    // //   expect(newlyBrandFilters).toEqual({ Apple: 1, Xiamio: 1 });
-    //   expect(newlyColorFilters).toEqual({});
-    //   expect(newlyBrandFilters).toEqual({});
-    //   // expect(newlyColorFilters).not.toEqual(initialColorFilters);
-    //   // expect(newlyBrandFilters).not.toEqual(initialBrandFilters);
- // });
   var selectedKeys = [
     ["color", "Siyah"],
     ["brand", "Xiamio"],

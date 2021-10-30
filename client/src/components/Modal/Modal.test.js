@@ -1,11 +1,9 @@
 import { Modal } from "components";
 import {
-  //fireEvent,
   render,
   screen,
 } from "test-utils";
-// import Adapter from 'enzyme-adapter-react-16';
-// import {configure, mount} from 'enzyme';
+import '@testing-library/jest-dom';
 var preloadedState = {
   basket: {
     basketItems: [
@@ -34,9 +32,4 @@ describe("<Modal/>", () => {
     expect(screen.getByTestId("confirm-button")).toBeInTheDocument();
     expect(screen.getByTestId("close-button")).toBeInTheDocument();
   });
-  // test("click confirm",async () => {
-  //   render(<Modal />, { preloadedState: preloadedState });
-  //   fireEvent.click(screen.getByText("Evet"));
-  //   expect ( await screen.findByText("Evet")).not.toBeInTheDocument();
-  // });
 });

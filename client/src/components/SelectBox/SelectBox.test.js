@@ -1,6 +1,6 @@
-import { render, screen } from "test-utils";
+import { fireEvent, render, screen } from "test-utils";
 import { SelectBox } from "components";
-import userEvent from "@testing-library/user-event";
+
 describe("<SelectBox />", () => {
   test("render <SelectBox /> component", () => {
     render(<SelectBox />);
@@ -9,7 +9,7 @@ describe("<SelectBox />", () => {
   test("select options", () => {
     render(<SelectBox />);
     expect(screen.getByTestId("select")).toBeInTheDocument();
-    userEvent.selectOptions(screen.getByTestId("select"), "price_asc");
+    fireEvent.change(screen.getByTestId("select"),{ target: { value: "price_asc" } } );
     expect(
       screen.getByRole("option", { name: "En Düşük Fiyat" }).selected
     ).toBe(true);
@@ -23,4 +23,5 @@ describe("<SelectBox />", () => {
       screen.getByRole("option", { name: "En Yeniler (Z>A)" }).selected
     ).toBe(false);
   });
+
 });
