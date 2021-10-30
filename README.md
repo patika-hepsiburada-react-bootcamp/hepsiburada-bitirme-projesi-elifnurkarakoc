@@ -5,6 +5,8 @@
         <a href="https://hepsiburada-react-challenge.netlify.app/">View Demo on Netlify</a>
         • 
         <a href="https://vast-bastion-74432.herokuapp.com/">Backend on Heroku</a>
+        • 
+        <a href="https://app.circleci.com/pipelines/github/elifnurkarakoc/hepsiburada-react-backend">Backend Circle CI</a>
     </p>
 </p>
 
@@ -37,7 +39,8 @@
 * [Redis](https://redis.io/)
 * [Chai](https://www.chaijs.com/)
 
-
+[Backend Circle CI repo](https://github.com/elifnurkarakoc/hepsiburada-react-backend)
+[![CircleCI](https://circleci.com/gh/elifnurkarakoc/hepsiburada-react-backend.svg?style=svg)](https://circleci.com/gh/elifnurkarakoc/hepsiburada-react-backend)
 <!-- GETTING STARTED -->
 ## Getting Started
 
