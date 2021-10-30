@@ -4,5 +4,3 @@ export const sortValues = {
   "latest_asc": "En Yeniler (A>Z)",
   "latest_desc": "En Yeniler (Z>A)",
 };
-
-// console.log(typeof sortValues);

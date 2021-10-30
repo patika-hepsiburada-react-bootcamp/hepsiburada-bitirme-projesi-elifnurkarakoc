@@ -17,7 +17,6 @@
     "test": "cd client && yarn lint",
     "prepare": "husky install"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/patika-hepsiburada-react-bootcamp/hepsiburada-bitirme-projesi-elifnurkarakoc.git"
