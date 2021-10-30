@@ -28,7 +28,6 @@ export const filterSelectedKeyProducts = (items, selectedKeys) => {
 };
 
 export const updateProductsSort = (visibleItems, sortValue) => {
-  // console.log({ visibleItems });
   var arrayForSort = [...visibleItems];
   if (sortValue === "price_asc") {
     return arrayForSort.sort((a, b) => a.discountPrice - b.discountPrice);
@@ -51,7 +50,6 @@ export const getBasketDataFromLocalStorage = () => {
   if (!cartItems) {
     return [];
   }
-  // console.log(cartItems);
   return cartItems;
 };
 

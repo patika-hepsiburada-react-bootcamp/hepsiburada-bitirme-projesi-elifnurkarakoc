@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { searchProducts } from "redux/slices/ProductSlice";
 const SearchInput = () => {
   const dispatch = useDispatch();
-
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
@@ -14,7 +13,6 @@ const SearchInput = () => {
       console.log("En az iki karakter giriniz.");
     }
     if (searchValue.length === 0) {
-      //console.log("searchvalue length 0");
       dispatch(searchProducts(searchValue));
     }
   }, [searchValue]);

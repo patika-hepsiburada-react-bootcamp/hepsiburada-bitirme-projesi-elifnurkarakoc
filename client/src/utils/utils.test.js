@@ -66,13 +66,11 @@ describe("utils function test", () => {
   test("updateProductsSort latest_desc", () => {
     var sortValue = "latest_desc";
     var response = updateProductsSort(items, sortValue);
-    console.log(response);
     expect(response).toEqual(items);
   });
   test("updateProductsSort price_desc", () => {
     var sortValue = "price_desc";
     var response = updateProductsSort(items, sortValue);
-    console.log(response);
     expect(response).toEqual(items.reverse());
   });
   test("setBasketDataToLocalStorage & getBasketDataFromLocalStorage", () => {
