@@ -23,15 +23,12 @@ export const ProductSlice = createSlice({
   },
   reducers: {
     searchProducts: (state, action) => {
-      // state.searchValue = action.payload.toLowerCase();
-      // state.visibleItems = state.searchValue
-      //   ? state.items.filter((p) => p.title.toLowerCase().includes(state.searchValue))
-      //   : state.items;
       const value = action.payload.toLowerCase();
       var temp =
         value.trim().length >= 2
           ? state.items.filter((p) => p.title.toLowerCase().includes(value))
           : state.items;
+      state.searchValue=value;
       state.visibleItems = temp;
     },
     updateProducts: (state, action) => {
@@ -40,10 +37,8 @@ export const ProductSlice = createSlice({
     },
     updateFilter: (state, action) => {
       const { filteredItems } = action.payload;
-      // console.log(filteredItems,"filteredItems");
       state.colorFilters = getCountProperty(filteredItems, "color");
       state.brandFilters = getCountProperty(filteredItems, "brand");
-      //console.log(state.brandFilters);
     },
     updateSelectedFilterKey: (state, action) => {
       state.selectedFilter = action.payload;
