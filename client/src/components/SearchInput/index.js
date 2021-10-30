@@ -10,7 +10,7 @@ const SearchInput = () => {
     if (searchValue.trim().length >= 2) {
       dispatch(searchProducts(searchValue));
     } else {
-      console.log("En az iki karakter giriniz.");
+      //console.log("En az iki karakter giriniz.");
     }
     if (searchValue.length === 0) {
       dispatch(searchProducts(searchValue));

@@ -5,9 +5,11 @@ import { deleteProductToBasket, closeModal } from "redux/slices/BasketSlice";
 const Modal = () => {
   const { deleteItem } = useSelector((state) => state.basket);
   const dispatch = useDispatch();
+
   const handleConfirmClick = () => {
     dispatch(deleteProductToBasket(deleteItem));
   };
+
   const handleCloseClick = () => {
     dispatch(closeModal(deleteItem));
   };
@@ -29,12 +31,20 @@ const Modal = () => {
         </div>
         <div className={styles.buttons}>
           <div className={styles.confirm}>
-            <div data-testid="confirm-button" className={styles.text} onClick={handleConfirmClick}>
+            <div
+              data-testid="confirm-button"
+              className={styles.text}
+              onClick={handleConfirmClick}
+            >
               Evet
             </div>
           </div>
           <div className={styles.close}>
-            <div data-testid="close-button" className={styles.text} onClick={handleCloseClick}>
+            <div
+              data-testid="close-button"
+              className={styles.text}
+              onClick={handleCloseClick}
+            >
               Hayır
             </div>
           </div>

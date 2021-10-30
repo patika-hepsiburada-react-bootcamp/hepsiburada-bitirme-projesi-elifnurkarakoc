@@ -16,7 +16,6 @@ const Footer = () => {
   useEffect(() => {
     indexOfLastProducts = currentPage * productPerPage;
     indexOfFirstProducts = indexOfLastProducts - productPerPage;
-    console.log({ indexOfFirstProducts, indexOfLastProducts });
     dispatch(updateIndexs({ indexOfFirstProducts, indexOfLastProducts }));
   }, [currentPage]);
 

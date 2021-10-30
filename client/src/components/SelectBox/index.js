@@ -8,7 +8,6 @@ const SelectBox = () => {
   const { sort } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const handleClick = (e) => {
-    // console.log("e.target.value", e.target.value);
     dispatch(updateSort(e.target.value));
   };
   return (
