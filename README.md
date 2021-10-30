@@ -12,8 +12,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Hebsiburada React Challenge Screen Shot]()
-
 - [x] Searching when at least two characters are entered according to the product name.
 - [x] Product listing by filters and sorting, active status update in sort components.
 - [x] Show the number of items in the cart in the cart badge. Sort the products in the cart by the date they were added. Modal appears when you want to delete the product.
@@ -31,12 +29,13 @@
 #### Client
 * [ReactJS](https://reactjs.org/)
 * CSS Module
+* [JEST](https://jestjs.io/)
+* [Testing Library](https://testing-library.com/)
 
 #### Backend
 * [Express](https://expressjs.com/)
 * [Redis](https://redis.io/)
-
-
+* [Chai](https://www.chaijs.com/)
 
 
 <!-- GETTING STARTED -->
