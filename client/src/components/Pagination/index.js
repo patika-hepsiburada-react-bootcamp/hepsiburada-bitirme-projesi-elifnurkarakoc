@@ -22,6 +22,7 @@ const Pagination = ({ productPerPage, totalCount, paginate }) => {
       return;
     }
   };
+
   return (
     <div data-testid="pagination" className={styles.pagination}>
       <ul>
@@ -35,7 +36,10 @@ const Pagination = ({ productPerPage, totalCount, paginate }) => {
         {pageNumbers.map((number) => (
           <li key={number}>
             <button
-              onClick={() => paginate(number)}
+              onClick={() => {
+                setCurrentPage(number);
+                paginate(number);
+              }}
               href="!#"
               className={styles.item}
             >
