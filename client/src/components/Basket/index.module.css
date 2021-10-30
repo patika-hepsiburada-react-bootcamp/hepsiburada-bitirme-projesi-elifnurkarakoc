@@ -19,11 +19,11 @@
   color: #b0b0b0;
 }
 .basket:hover > .basketButton {
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  background: white;
+  z-index: 5;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  background: white;
-  z-index: 2;
 }
 .basketText {
   display: flex;

@@ -14,7 +14,7 @@ export const BasketSlice = createSlice({
   },
   reducers: {
     addProductToBasket: (state, action) => {
-      const item = { ...action.payload, addedDate: new Date() };
+      const item = { ...action.payload, addedDate: JSON.parse(JSON.stringify(new Date())) };
       state.basketItems = [...state.basketItems, item].sort(
         (a, b) => new Date(b.addedDate) - new Date(a.addedDate)
       );
