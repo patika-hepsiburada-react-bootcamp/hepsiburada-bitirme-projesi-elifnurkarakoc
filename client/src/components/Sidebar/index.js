@@ -16,28 +16,26 @@ const Sidebar = ({ title, propertyName, filterValues }) => {
 
   var filteredItems = {};
   const handleClick = (key) => {
-    // gelen key selected itema ekle
+    // add incoming key to selected item
     var keys = [...selectedFilter, [propertyName, key]];
 
     if (Object.keys(filterValues).length === 1) {
-      //filterValues eğer 1 e eşit ise keys arrayinden bulunan key'i kaldır
+      //filterValues if equal to 1 remove key from keys array
       keys = keys.filter((item) => item[1] !== key);
-      // console.log("remove key after", keys);
-      //eğer keys length sıfır ise filtereditems=items olucak
+      //if keys length is zero then filteredItems will be items
       if (keys.length === 0) {
         filteredItems = items;
       } else {
         filteredItems = filterSelectedKeyProducts(items, keys);
       }
     } else {
-      filteredItems = filterSelectedKeyProducts(items, keys); //filterProducts(items, propertyName, key);
+      filteredItems = filterSelectedKeyProducts(items, keys);
     }
     dispatch(updateFilter({ filteredItems }));
     dispatch(updateProducts(filteredItems));
     dispatch(updateSelectedFilterKey(keys));
   };
   const handleSortClick = (key) => {
-    // console.log(key);
     dispatch(updateSort(key));
   };
   return (
