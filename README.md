@@ -1,10 +1,10 @@
 <p align="center">
-    <h3 align="center">Hebsiburada React Challenge</h3>
+    <h3 align="center">Hepsiburada React Challenge</h3>
     <br />
         <p align="center">
-        <a href="">View Demo on Netlify</a>
+        <a href="https://hepsiburada-react-challenge.netlify.app/">View Demo on Netlify</a>
         • 
-        <a href="">Backend on Heroku</a>
+        <a href="https://vast-bastion-74432.herokuapp.com/">Backend on Heroku</a>
     </p>
 </p>
 
