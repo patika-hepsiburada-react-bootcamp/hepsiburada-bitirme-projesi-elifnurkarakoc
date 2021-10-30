@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchProducts } from "api/api";
-import { getCountProperty } from "utils";
+import { getCountProperty, updateProductsSort } from "utils";
 export const getProductAsync = createAsyncThunk(
   "getProductAsync",
   fetchProducts
@@ -28,21 +28,22 @@ export const ProductSlice = createSlice({
       //   ? state.items.filter((p) => p.title.toLowerCase().includes(state.searchValue))
       //   : state.items;
       const value = action.payload.toLowerCase();
-      var temp=value.trim().length >= 2
-      ? state.items.filter((p) => p.title.toLowerCase().includes(value))
-      : state.items;
+      var temp =
+        value.trim().length >= 2
+          ? state.items.filter((p) => p.title.toLowerCase().includes(value))
+          : state.items;
       state.visibleItems = temp;
     },
     updateProducts: (state, action) => {
       const filteredItems = action.payload;
-      state.visibleItems = filteredItems;
+      state.visibleItems = updateProductsSort(filteredItems, state.sort);
     },
     updateFilter: (state, action) => {
       const { filteredItems } = action.payload;
-      console.log(filteredItems,"filteredItems");
+      // console.log(filteredItems,"filteredItems");
       state.colorFilters = getCountProperty(filteredItems, "color");
       state.brandFilters = getCountProperty(filteredItems, "brand");
-      console.log(state.brandFilters);
+      //console.log(state.brandFilters);
     },
     updateSelectedFilterKey: (state, action) => {
       state.selectedFilter = action.payload;
