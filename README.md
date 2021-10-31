@@ -42,6 +42,12 @@
 * [Mocha](https://mochajs.org/)
 * [Sucrase](https://github.com/alangpierce/sucrase)
 
+#### Deployment
+* [Netlify](https://www.netlify.com/)
+* [Heroku](https://www.heroku.com/)
+* [Upstash](https://upstash.com/)
+
+
 [Backend Circle CI repo](https://github.com/elifnurkarakoc/hepsiburada-react-backend)
 [![CircleCI](https://circleci.com/gh/elifnurkarakoc/hepsiburada-react-backend.svg?style=svg)](https://circleci.com/gh/elifnurkarakoc/hepsiburada-react-backend)
 <!-- GETTING STARTED -->
