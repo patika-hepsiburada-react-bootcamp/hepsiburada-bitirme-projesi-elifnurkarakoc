@@ -6,17 +6,14 @@ describe("<SearchInput />", () => {
     expect(screen.getByTestId("search-input")).toBeInTheDocument();
   });
 
-  test("search input control - correct input", () => {
-    render(<SearchInput />);
+  test("search input control - correct input & invalid input", () => {
+    const {rerender}=render(<SearchInput />);
     fireEvent.change(screen.getByTestId("search-input"), {
       target: { value: "hi" },
     });
     expect(screen.getByTestId("search-input")).toHaveValue("hi");
     expect(screen.queryByTestId("alert")).not.toBeInTheDocument();
-  });
-
-  test("search input control - invalid input", () => {
-    render(<SearchInput />);
+    rerender(<SearchInput />);
     fireEvent.change(screen.getByTestId("search-input"), {
       target: { value: "h" },
     });
