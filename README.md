@@ -30,14 +30,17 @@
 ### Built With
 #### Client
 * [ReactJS](https://reactjs.org/)
+* [Redux Toolkit](https://redux-toolkit.js.org/)
 * CSS Module
-* [JEST](https://jestjs.io/)
+* [Jest](https://jestjs.io/)
 * [Testing Library](https://testing-library.com/)
 
 #### Backend
 * [Express](https://expressjs.com/)
 * [Redis](https://redis.io/)
 * [Chai](https://www.chaijs.com/)
+* [Mocha](https://mochajs.org/)
+* [Sucrase](https://github.com/alangpierce/sucrase)
 
 [Backend Circle CI repo](https://github.com/elifnurkarakoc/hepsiburada-react-backend)
 [![CircleCI](https://circleci.com/gh/elifnurkarakoc/hepsiburada-react-backend.svg?style=svg)](https://circleci.com/gh/elifnurkarakoc/hepsiburada-react-backend)
